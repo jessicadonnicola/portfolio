@@ -1,0 +1,170 @@
+// _about.scss
+@use '../variables/variables' as *;
+
+// _about.scss
+
+// ─── BIO CARD & IMMAGINE ───
+.photo-placeholder {
+  width: 100%;
+  // aspect-ratio: 3/4;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, hsla(var(--primary), 0.15), hsla(var(--primary), 0.02));
+  border: 1px solid hsla(0, 0%, 95%, 0.06);
+  color: hsla(0, 0%, 95%, 0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2); // Dà profondità
+}
+
+.cv-picture{
+  border-radius: 1.5rem;
+}
+
+.quote-box {
+  border-left: 2px solid hsla(var(--primary), 0.5);
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  color: hsla(0, 0%, 95%, 0.6);
+  font-style: italic;
+}
+
+// ─── TIMELINE CENTRATA ───
+.path-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 0;
+  overflow: visible; 
+
+  .path-line-base {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: hsl(var(--border));
+    transform: translateX(-50%);
+    z-index: 1; // Livello più basso
+  }
+
+  .path-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    z-index: 3; // Sopra la linea e lo scanner
+
+    .node-dot {
+      width: 14px;
+      height: 14px;
+      background: hsl(var(--background));
+      border: 2px solid hsl(var(--primary));
+      border-radius: 50%;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 20px;
+      box-shadow: var(--glow-coral);
+
+      // L'effetto flare rimane, ma non disturba il testo
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 1px;
+        border-radius: 50%;
+        background: hsl(var(--primary));
+        opacity: 0;
+        animation: node-flare 5s infinite;
+        animation-delay: var(--delay);
+        filter: blur(10px);
+      }
+    }
+
+    // IL "PROTETTORE" DELLA LEGGIBILITÀ
+    .node-info-card {
+      position: relative;
+      padding: 10px 25px;
+      // USIAMO IL COLORE DI SFONDO PER COPRIRE LA LINEA
+      background-color: hsl(var(--background)); 
+      border-radius: 12px;
+      transition: $transition-smooth;
+      
+      // Opzionale: un leggero bordo per staccare dal fondo se vuoi
+      // border: 1px solid hsl(var(--border)); 
+    }
+
+    .node-date {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: hsl(var(--primary));
+      margin-bottom: 0.5rem;
+    }
+
+    .node-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.5rem;
+    }
+
+    .node-desc {
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.6);
+      margin: 0;
+    }
+
+    &:hover {
+      .node-info-card {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+      }
+    }
+  }
+}
+
+// Le animazioni scan-move e node-flare restano identiche a prima
+// ─── SKILLS PILLS (Estende quelle della Home) ───
+.skill-category-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsla(0, 0%, 95%, 0.5);
+  border-bottom: 1px solid hsla(0, 0%, 95%, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+
+
+// ─── KEYFRAMES PER IL MOVIMENTO VERTICALE ───
+@keyframes scan-travel {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1; // Appare subito dopo l'inizio
+  }
+  95% {
+    opacity: 1; // Rimane visibile quasi fino alla fine
+  }
+  100% {
+    top: 100%; // Arriva in fondo alla sezione
+    opacity: 0;
+  }
+}
+
+// ─── KEYFRAMES PER IL REAZIONE DEI NODI (Opzionale ma consigliato) ───
+@keyframes node-flare {
+  0%, 20%, 50%, 100% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  // Questo deve coincidere con il passaggio dello scanner
+  // (va regolato in base ai --delay che hai messo nell'HTML)
+  25% { 
+    opacity: 0.6; 
+    transform: translate(-50%, -50%) scale(2);
+    box-shadow: var(--glow-coral-strong);
+  }
+}

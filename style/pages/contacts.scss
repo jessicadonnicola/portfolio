@@ -1,0 +1,88 @@
+// ─── STILI SPECIFICI PER LA PAGINA CONTACT ───
+@use '../variables/variables' as *;
+.contact-page {
+  padding-top: 80px; 
+}
+
+.tracking-wider {
+  letter-spacing: 0.1em;
+}
+
+// Stile per Input e Textarea
+.custom-input {
+  background: hsla(0, 0%, 100%, 0.03); // Leggero fondo chiaro
+  border: 1px solid hsla(0, 0%, 95%, 0.08);
+  color: hsl(var(--foreground));
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: $transition-smooth;
+  box-shadow: none;
+
+  &::placeholder {
+    color: hsla(0, 0%, 95%, 0.3);
+  }
+
+  &:focus {
+    background: hsla(0, 0%, 100%, 0.05);
+    border-color: hsla(var(--primary), 0.5);
+    box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
+    color: hsl(var(--foreground));
+  }
+}
+
+.resize-none {
+  resize: none;
+}
+
+// ─── REASON TAGS (Radio Buttons come Bottoni) ───
+.reason-tags-container {
+  // Nascondiamo i radio button reali (usiamo classe btn-check di bootstrap)
+  
+  .reason-tag {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 999px; // Pill shape
+    font-size: 0.875rem;
+    color: hsla(0, 0%, 95%, 0.5);
+    border: 1px solid hsla(0, 0%, 95%, 0.08);
+    transition: all 0.3s ease;
+    user-select: none;
+
+    &:hover {
+      border-color: hsla(var(--primary) / 40%);
+      color: hsla(var(--primary) / 80%);
+    }
+  }
+
+  // Quando l'input radio è checked, cambia lo stile della label adiacente
+  .btn-check:checked + .reason-tag {
+    // background: hsla(var(--primary) / 80%);
+     @include bg-gradient-coral;
+    color: #fff;
+    border-color: transparent;
+  }
+}
+
+// Link back
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: hsla(0, 0%, 95%, 0.4);
+  text-decoration: none;
+  transition: $transition-smooth;
+
+  .rotate-arrow {
+    transform: rotate(225deg);
+    transition: $transition-smooth;
+  }
+
+  &:hover {
+    color: hsl(var(--primary));
+    .rotate-arrow {
+      color: hsl(var(--primary));
+      transform: rotate(225deg) translateX(4px) translateY(-4px);
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@use '../variables/variables' as *;
+
+.project-detail-page {
+  // Utility Classes
+  .aspect-16-9 { aspect-ratio: 16 / 9; }
+  .aspect-4-3 { aspect-ratio: 4 / 3; }
+  padding-top: 80px; 
+  min-height: 100vh;
+
+  .badge-custom {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    border: 1px solid hsla(0, 0%, 95%, 0.08);
+    font-size: 0.75rem;
+    color: hsla(0, 0%, 95%, 0.5);
+  }
+
+  .tool-tag {
+    padding: 0.2rem 0.8rem;
+    background: hsla(12, 100%, 64%, 0.1);
+    color: hsl(var(--primary));
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .glass-image-container {
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.02), hsla(0, 0%, 100%, 0.05));
+    border: 1px solid hsla(0, 0%, 95%, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+
+    .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // L'immagine si adatta come un background-size: cover
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+  }
+
+  // Effetto "Alien Zoom" al passaggio del mouse
+  &:hover .project-img {
+    transform: scale(1.05);
+  }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: var(--glow-coral);
+      pointer-events: none;
+    }
+  }
+
+  // Back Link (stesso della contact)
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: hsla(0, 0%, 95%, 0.4);
+    text-decoration: none;
+    transition: $transition-smooth;
+
+    .rotate-arrow {
+      transform: rotate(225deg);
+      transition: $transition-smooth;
+    }
+
+    &:hover {
+      color: hsl(var(--primary));
+      .rotate-arrow { transform: rotate(225deg) translate(2px, -2px); }
+    }
+  }
+
+
+  // Next Project Section
+  .next-project-link {
+    h2:hover {
+      @include text-gradient-coral;
+    }
+
+    .arrow-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid hsla(0, 0%, 95%, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: hsla(0, 0%, 95%, 0.4);
+      transition: $transition-smooth;
+    }
+
+    &:hover .arrow-circle {
+      border-color: hsla(12, 100%, 64%, 0.4);
+      background: hsla(12, 100%, 64%, 0.1);
+      color: hsl(var(--primary));
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+

@@ -1,0 +1,99 @@
+:root {
+  --background: 230 16% 14%;
+  --foreground: 0 0% 95%;
+  --primary: 12 100% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 14 100% 78%;
+  --secondary-foreground: 230 16% 14%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --accent: 14 100% 78%;
+  --accent-foreground: 230 16% 14%;
+  --border: 0 0% 95% / 0.08;
+  --input: 0 0% 95% / 0.08;
+  --ring: 12 100% 64%;
+  --glow-coral: 0 0 40px hsl(12 100% 64% / 0.15);
+  --glow-coral-strong: 0 0 60px hsl(12 100% 64% / 0.25);
+}
+
+.navbar-alien {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1050;
+}
+.navbar-alien .glass-nav {
+  background: hsla(230, 16%, 17%, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 95%, 0.08);
+  transition: all 0.4s ease;
+  margin: 0 auto;
+}
+.navbar-alien.scrolled .glass-nav {
+  background: hsla(230, 16%, 17%, 0.8);
+  border-color: hsla(var(--primary), 0.2);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transform: scale(0.98);
+}
+.navbar-alien .nav-link {
+  color: hsla(0, 0%, 95%, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+.navbar-alien .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, hsl(12, 100%, 64%), hsl(14, 100%, 78%));
+  transition: width 0.3s ease;
+}
+.navbar-alien .nav-link:hover, .navbar-alien .nav-link.active {
+  color: hsl(var(--foreground));
+}
+.navbar-alien .nav-link:hover::after, .navbar-alien .nav-link.active::after {
+  width: 100%;
+}
+.navbar-alien .hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.navbar-alien .hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: hsl(var(--foreground));
+  transition: 0.3s;
+}
+.navbar-alien .navbar-toggler[aria-expanded=true] .hamburger span:first-child {
+  transform: rotate(45deg) translateY(4.5px);
+}
+.navbar-alien .navbar-toggler[aria-expanded=true] .hamburger span:last-child {
+  transform: rotate(-45deg) translateY(-4.5px);
+}
+
+@media (max-width: 767.98px) {
+  .navbar-alien .glass-nav {
+    border-radius: 20px !important;
+    margin: 0 15px;
+  }
+  .navbar-alien .navbar-collapse {
+    padding-top: 1rem;
+  }
+}
+ul.mx-auto {
+  margin-left: auto !important;
+  margin-right: 3rem !important;
+}
+
+.navbar-brand img {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.navbar-brand img:hover {
+  transform: rotate(-5deg) scale(1.1);
+}/*# sourceMappingURL=navbar.css.map */

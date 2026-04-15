@@ -1,0 +1,67 @@
+@use '../variables/variables' as *;
+
+.works-page {
+  // Diamo spazio extra in alto per distaccarci dalla Navbar
+  padding-top: 80px; 
+  min-height: 100vh;
+}
+
+// Stile per i metadati (Categoria e Anno)
+.work-meta {
+  gap: 2rem;
+  font-size: 0.875rem;
+  color: hsla(0, 0%, 95%, 0.4);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: $transition-smooth;
+}
+
+// Aggiornamento dello stato Hover sul .work-item per includere i meta
+.work-item {
+  &:hover {
+    // Mantieni le tue animazioni precedenti per title e icon...
+    
+    // Leggero bagliore anche sui metadati al passaggio del mouse
+    .work-meta {
+      color: hsla(0, 0%, 95%, 0.7);
+    }
+  }
+}
+
+// Link "Back to home"
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: hsla(0, 0%, 95%, 0.4);
+  text-decoration: none;
+  transition: $transition-smooth;
+
+  .rotate-arrow {
+    transform: rotate(225deg); // Gira la freccia in basso a sinistra
+    transition: $transition-smooth;
+  }
+
+  &:hover {
+    color: hsl(var(--primary));
+    
+    .rotate-arrow {
+      color: hsl(var(--primary));
+      transform: rotate(225deg) translateX(4px) translateY(-4px); // Movimento dinamico
+    }
+  }
+}
+
+.preview-box {
+  overflow: hidden; 
+  padding: 0; 
+  
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    display: block; 
+  }
+}

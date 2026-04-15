@@ -1,0 +1,18 @@
+@use '../variables/variables' as *;
+
+body {
+  font-family: $font-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+h1, h2, h3, h4, h5, h6, .btn {
+  font-family: $font-main;
+}
+
+.bold-titles{
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+}

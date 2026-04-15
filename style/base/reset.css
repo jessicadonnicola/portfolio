@@ -1,0 +1,17 @@
+:root {
+  --background: 230 16% 14%;
+  --foreground: 0 0% 95%;
+  --primary: 12 100% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 14 100% 78%;
+  --secondary-foreground: 230 16% 14%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --accent: 14 100% 78%;
+  --accent-foreground: 230 16% 14%;
+  --border: 0 0% 95% / 0.08;
+  --input: 0 0% 95% / 0.08;
+  --ring: 12 100% 64%;
+  --glow-coral: 0 0 40px hsl(12 100% 64% / 0.15);
+  --glow-coral-strong: 0 0 60px hsl(12 100% 64% / 0.25);
+}/*# sourceMappingURL=reset.css.map */
