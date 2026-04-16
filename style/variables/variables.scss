@@ -1,11 +1,9 @@
 // _variables.scss
 
-// Variabili SCSS per media queries e mixin
 $transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 $font-main: 'Inter', sans-serif;
 
 :root {
-  // Colori base Lovable
   --background: 230 16% 14%;
   --foreground: 0 0% 95%;
 
@@ -25,7 +23,6 @@ $font-main: 'Inter', sans-serif;
   --input: 0 0% 95% / 0.08;
   --ring: 12 100% 64%;
 
-  // Custom tokens (Mood Alieno)
   --glow-coral: 0 0 40px hsl(12 100% 64% / 0.15);
   --glow-coral-strong: 0 0 60px hsl(12 100% 64% / 0.25);
 }

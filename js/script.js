@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('bubbles-container');
 
-  // Dati delle bolle (copiati dal tuo componente originale)
   const bubblesData = [
     { id: 1, size: 280, x: 15, y: 20, delay: 0, duration: 8, opacity: 0.12, blur: 0 },
     { id: 2, size: 180, x: 75, y: 15, delay: 1, duration: 10, opacity: 0.08, blur: 20 },
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   bubblesData.forEach((b) => {
     const bubble = document.createElement('div');
     
-    // Applichiamo gli stili direttamente come faceva React
     Object.assign(bubble.style, {
       position: 'absolute',
       width: `${b.size}px`,
@@ -38,41 +36,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //SECTION PORTFOLIO///
-// Aggiungi questo dentro il DOMContentLoaded nel tuo script.js
-// Seleziona tutte le sezioni che devono animarsi allo scroll
 const animatedSections = document.querySelectorAll('.framer-hidden');
 
-// Crea l'osservatore
 const observerOptions = {
   root: null,
-  rootMargin: '-100px', // Corrisponde a margin: "-100px" di framer-motion
+  rootMargin: '-100px',
   threshold: 0
 };
 
 const sectionObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
-    // Se la sezione entra nello schermo
     if (entry.isIntersecting) {
       entry.target.classList.add('framer-visible');
-      // Corrisponde a once: true (smette di osservare dopo che è apparsa)
       observer.unobserve(entry.target); 
     }
   });
 }, observerOptions);
 
-// Inizializza l'osservatore per ogni sezione
 animatedSections.forEach(section => {
   sectionObserver.observe(section);
 });
 
 
 ///navbar///
-// script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar-alien');
     
-    // Funzione Scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
             navbar.classList.add('scrolled');
@@ -81,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Opzionale: chiudi il menu mobile quando clicchi un link
     const navLinks = document.querySelectorAll('.nav-link');
     const menuToggle = document.getElementById('navMain');
     const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
@@ -96,18 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ///about///
 document.addEventListener('DOMContentLoaded', () => {
-  // Intersection Observer per le animazioni Reveal Up
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15 // L'animazione parte quando il 15% dell'elemento è visibile
+    threshold: 0.15 
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Anima solo la prima volta
+        observer.unobserve(entry.target); 
       }
     });
   }, observerOptions);
@@ -120,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ///EmailJS///
-
   (function() {
     emailjs.init({
         publicKey: "Z0r20YlEb2aWizdzc", 

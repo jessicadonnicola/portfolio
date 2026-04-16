@@ -2,22 +2,21 @@
 
 a {
   text-decoration: none;
-  color: inherit; // Toglie il blu di Bootstrap
+  color: inherit;
   transition: $transition-smooth;
 
   &:hover {
-    color: --primary; // Diventa corallo on hover
+    color: --primary; 
   }
 }
 
 .container-custom {
   width: 100%;
-  max-width: 1140px; // Standard per desktop
-  margin: 0 auto;    // Centra tutto
+  max-width: 1140px; 
+  margin: 0 auto;    
   padding: 0 20px;
 }
-// ─── 1. VARIABILI E DESIGN TOKENS ───
-// Colori definiti come componenti H, S, L per massima compatibilità
+
 $coral-h: 12;
 $coral-s: 100%;
 $coral-l: 64%;
@@ -30,7 +29,6 @@ $bg-dark: #1a1c23;
 $surface: #252833;
 $neutral: #f2f2f2;
 
-// ─── 2. MIXINS ───
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -44,7 +42,6 @@ $neutral: #f2f2f2;
   border: 1px solid rgba($neutral, 0.06);
 }
 
-// ─── 3. BASE STYLES ───
 * {
   box-sizing: border-box;
   margin: 0;
@@ -68,7 +65,6 @@ body {
   flex-direction: column;
   overflow: hidden;
 
-  // Background Mesh (Corretto per Sass)
   &.bg-gradient-mesh {
     background: 
       radial-gradient(ellipse 600px 400px at 20% 20%, hsla($coral-h, $coral-s, $coral-l, 0.04), transparent),
@@ -95,7 +91,6 @@ body {
   }
 }
 
-// ─── 5. TYPOGRAPHY ───
 .hero-subtitle {
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -211,37 +206,31 @@ body {
   66% { transform: translate(-8px, 15px) scale(0.97); }
 }
 
-// Classi di animazione (applicate nell'HTML)
 .animate-fade-up {
   opacity: 0;
   animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
-// Aggiungiamo i delay per i vari elementi
 .delay-1 { animation-delay: 0.2s; } // Per il sottotitolo
 .delay-2 { animation-delay: 0.4s; } // Per il titolo H1
 .delay-3 { animation-delay: 0.6s; } // Per la descrizione
 .delay-4 { animation-delay: 0.8s; } // Per i tag delle skill
 
-// Nuova animazione per l'entrata delle bolle (uno scale morbido)
 @keyframes bubbleIn {
   from {
     opacity: 0;
     transform: scale(0.5);
   }
   to {
-    opacity: 1; // L'opacità finale sarà poi gestita dal JS o dal gradiente
+    opacity: 1; 
     transform: scale(1);
   }
 }
 
 // HOMEPAGE SECTIONS///////
 
-// _home.scss
-
-// Utility condivise per le sezioni
 .custom-container {
-  max-width: 1024px; // rimpiazza il max-w-5xl di tailwind
+  max-width: 1024px; 
 }
 
 .overline-text {
@@ -306,7 +295,7 @@ body {
     color: hsla(0, 0%, 95%, 0.4);
   }
 
-  // Accordion effect magico in CSS puro
+  // Accordion
   .work-accordion {
     display: grid;
     grid-template-rows: 0fr;
@@ -408,12 +397,10 @@ body {
   }
 }
 
-// Animazioni Framer fittizie in CSS
 .framer-hidden {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUpOnLoad 0.8s ease-out forwards;
-  // Aggiungi un JS observer se vuoi che si attivino allo scroll
 }
 
 @keyframes fadeUpOnLoad {

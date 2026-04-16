@@ -1,12 +1,10 @@
 @use '../variables/variables' as *;
 
 .works-page {
-  // Diamo spazio extra in alto per distaccarci dalla Navbar
   padding-top: 80px; 
   min-height: 100vh;
 }
 
-// Stile per i metadati (Categoria e Anno)
 .work-meta {
   gap: 2rem;
   font-size: 0.875rem;
@@ -16,19 +14,14 @@
   transition: $transition-smooth;
 }
 
-// Aggiornamento dello stato Hover sul .work-item per includere i meta
 .work-item {
   &:hover {
-    // Mantieni le tue animazioni precedenti per title e icon...
-    
-    // Leggero bagliore anche sui metadati al passaggio del mouse
     .work-meta {
       color: hsla(0, 0%, 95%, 0.7);
     }
   }
 }
 
-// Link "Back to home"
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -39,7 +32,7 @@
   transition: $transition-smooth;
 
   .rotate-arrow {
-    transform: rotate(225deg); // Gira la freccia in basso a sinistra
+    transform: rotate(225deg); 
     transition: $transition-smooth;
   }
 
@@ -48,7 +41,7 @@
     
     .rotate-arrow {
       color: hsl(var(--primary));
-      transform: rotate(225deg) translateX(4px) translateY(-4px); // Movimento dinamico
+      transform: rotate(225deg) translateX(4px) translateY(-4px); 
     }
   }
 }

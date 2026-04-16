@@ -11,7 +11,7 @@
   background: linear-gradient(135deg, hsla(var(--primary), 0.15), hsla(var(--primary), 0.02));
   border: 1px solid hsla(0, 0%, 95%, 0.06);
   color: hsla(0, 0%, 95%, 0.2);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2); // Dà profondità
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
 }
 
 .cv-picture{
@@ -26,7 +26,7 @@
   font-style: italic;
 }
 
-// ─── TIMELINE CENTRATA ───
+// ─── TIMELINE ───
 .path-wrapper {
   position: relative;
   max-width: 900px;
@@ -42,7 +42,7 @@
     width: 1px;
     background: hsl(var(--border));
     transform: translateX(-50%);
-    z-index: 1; // Livello più basso
+    z-index: 1; 
   }
 
   .path-node {
@@ -51,7 +51,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 100px;
-    z-index: 3; // Sopra la linea e lo scanner
+    z-index: 3; 
 
     .node-dot {
       width: 14px;
@@ -64,7 +64,6 @@
       margin-bottom: 20px;
       box-shadow: var(--glow-coral);
 
-      // L'effetto flare rimane, ma non disturba il testo
       &::after {
         content: '';
         position: absolute;
@@ -78,17 +77,12 @@
       }
     }
 
-    // IL "PROTETTORE" DELLA LEGGIBILITÀ
     .node-info-card {
       position: relative;
       padding: 10px 25px;
-      // USIAMO IL COLORE DI SFONDO PER COPRIRE LA LINEA
       background-color: hsl(var(--background)); 
       border-radius: 12px;
       transition: $transition-smooth;
-      
-      // Opzionale: un leggero bordo per staccare dal fondo se vuoi
-      // border: 1px solid hsl(var(--border)); 
     }
 
     .node-date {
@@ -122,8 +116,6 @@
   }
 }
 
-// Le animazioni scan-move e node-flare restano identiche a prima
-// ─── SKILLS PILLS (Estende quelle della Home) ───
 .skill-category-title {
   font-size: 0.85rem;
   font-weight: 600;
@@ -135,33 +127,28 @@
 }
 
 
-
-// ─── KEYFRAMES PER IL MOVIMENTO VERTICALE ───
 @keyframes scan-travel {
   0% {
     top: 0%;
     opacity: 0;
   }
   5% {
-    opacity: 1; // Appare subito dopo l'inizio
+    opacity: 1; 
   }
   95% {
-    opacity: 1; // Rimane visibile quasi fino alla fine
+    opacity: 1; 
   }
   100% {
-    top: 100%; // Arriva in fondo alla sezione
+    top: 100%; 
     opacity: 0;
   }
 }
 
-// ─── KEYFRAMES PER IL REAZIONE DEI NODI (Opzionale ma consigliato) ───
 @keyframes node-flare {
   0%, 20%, 50%, 100% { 
     opacity: 0; 
     transform: translate(-50%, -50%) scale(1); 
   }
-  // Questo deve coincidere con il passaggio dello scanner
-  // (va regolato in base ai --delay che hai messo nell'HTML)
   25% { 
     opacity: 0.6; 
     transform: translate(-50%, -50%) scale(2);

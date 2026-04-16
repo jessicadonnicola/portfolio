@@ -8,9 +8,8 @@
   letter-spacing: 0.1em;
 }
 
-// Stile per Input e Textarea
 .custom-input {
-  background: hsla(0, 0%, 100%, 0.03); // Leggero fondo chiaro
+  background: hsla(0, 0%, 100%, 0.03); 
   border: 1px solid hsla(0, 0%, 95%, 0.08);
   color: hsl(var(--foreground));
   border-radius: 0.75rem;
@@ -34,9 +33,8 @@
   resize: none;
 }
 
-// ─── REASON TAGS (Radio Buttons come Bottoni) ───
+// ─── REASON TAGS ───
 .reason-tags-container {
-  // Nascondiamo i radio button reali (usiamo classe btn-check di bootstrap)
   
   .reason-tag {
     cursor: pointer;
@@ -54,7 +52,6 @@
     }
   }
 
-  // Quando l'input radio è checked, cambia lo stile della label adiacente
   .btn-check:checked + .reason-tag {
     // background: hsla(var(--primary) / 80%);
      @include bg-gradient-coral;
