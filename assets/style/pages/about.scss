@@ -1,20 +1,26 @@
 // _about.scss
 @use '../variables/variables' as *;
 
-// _about.scss
-
 // ─── BIO CARD & IMMAGINE ───
 .photo-placeholder {
   width: 100%;
-  // aspect-ratio: 3/4;
   border-radius: 1.5rem;
+  overflow: hidden;
+  align-self: flex-start;
   background: linear-gradient(135deg, hsla(var(--primary), 0.15), hsla(var(--primary), 0.02));
   border: 1px solid hsla(0, 0%, 95%, 0.06);
   color: hsla(0, 0%, 95%, 0.2);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
 
-.cv-picture{
+.cv-picture {
   border-radius: 1.5rem;
 }
 
@@ -26,13 +32,60 @@
   font-style: italic;
 }
 
+// ─── BIO TEXT HIERARCHY ───
+
+.about-greeting {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: hsl(var(--foreground) / 0.5);
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.about-lead {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: hsl(var(--foreground) / 0.95);
+  margin-bottom: 1.25rem;
+
+  strong {
+    font-weight: 700;
+    color: hsl(var(--foreground));
+  }
+}
+
+.about-body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: hsl(var(--foreground) / 0.7);
+  margin-bottom: 1rem;
+
+  strong {
+    font-weight: 600;
+    color: hsl(var(--foreground) / 0.9);
+  }
+}
+
+.about-aside {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: hsl(var(--foreground) / 0.45);
+  border-left: 2px solid hsl(var(--primary) / 0.4);
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
 // ─── TIMELINE ───
 .path-wrapper {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
   padding: 80px 0;
-  overflow: visible; 
+  overflow: visible;
 
   .path-line-base {
     position: absolute;
@@ -42,7 +95,7 @@
     width: 1px;
     background: hsl(var(--border));
     transform: translateX(-50%);
-    z-index: 1; 
+    z-index: 1;
   }
 
   .path-node {
@@ -51,7 +104,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 100px;
-    z-index: 3; 
+    z-index: 3;
 
     .node-dot {
       width: 14px;
@@ -80,7 +133,7 @@
     .node-info-card {
       position: relative;
       padding: 10px 25px;
-      background-color: hsl(var(--background)); 
+      background-color: hsl(var(--background));
       border-radius: 12px;
       transition: $transition-smooth;
     }
@@ -116,6 +169,7 @@
   }
 }
 
+// ─── SKILLS ───
 .skill-category-title {
   font-size: 0.85rem;
   font-weight: 600;
@@ -126,31 +180,21 @@
   padding-bottom: 0.5rem;
 }
 
-
+// ─── ANIMATIONS ───
 @keyframes scan-travel {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1; 
-  }
-  95% {
-    opacity: 1; 
-  }
-  100% {
-    top: 100%; 
-    opacity: 0;
-  }
+  0%   { top: 0%;   opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 @keyframes node-flare {
-  0%, 20%, 50%, 100% { 
-    opacity: 0; 
-    transform: translate(-50%, -50%) scale(1); 
+  0%, 20%, 50%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
   }
-  25% { 
-    opacity: 0.6; 
+  25% {
+    opacity: 0.6;
     transform: translate(-50%, -50%) scale(2);
     box-shadow: var(--glow-coral-strong);
   }
