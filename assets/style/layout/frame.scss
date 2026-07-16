@@ -1,0 +1,294 @@
+// _frame.scss — M1
+// La cornice: header e footer fissi, il contenuto scorre dietro.
+//
+// M9 — FIX CONTRASTO: prima la cornice leggeva var(--fg)/var(--bg),
+// animate dal theme engine JS in base allo scroll. Ma quel motore è
+// legato a trigger di scroll (top 60% / bottom 40%) che con sezioni
+// pinnate lunghe (Process, Hero) possono sfasarsi: risultato, a volte
+// la cornice restava scura anche su sfondo scuro (invisibile).
+// Soluzione — identica a quella di Lovable (Nav.tsx: mix-blend-difference
+// + colore fisso "paper"): la cornice usa SEMPRE lo stesso colore chiaro
+// costante e si "inverte" da sola otticamente in base a cosa le sta
+// dietro, via mix-blend-mode. Zero dipendenza dallo scroll-trigger:
+// su sfondo scuro resta chiara, su sfondo chiaro diventa scura in automatico.
+
+@use '../variables/variables' as *;
+
+.site-frame {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--frame-h);
+  padding: 0 var(--frame-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--paper); // costante, NON animato dal theme engine → riferimento stabile per il blend
+  mix-blend-mode: difference; // si "inverte" da solo contro qualsiasi sfondo sotto
+  // La cornice non blocca i click sul contenuto sottostante…
+  pointer-events: none;
+
+  // …ma i suoi elementi interattivi sì.
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.footer-frame {
+  height: var(--frame-h);
+  padding: 0 var(--frame-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.frame-top {
+  top: 0;
+}
+
+.frame-bottom {
+  bottom: 0;
+
+  @media (max-width: 767px) {
+    padding: 1rem;
+    width: 100%;
+    z-index: 100;
+  }
+}
+
+// ── HEADER ──
+.frame-logo {
+  display: flex;
+  align-items: center;
+
+  svg,
+  img {
+    height: 38px;
+    width: auto;
+  }
+
+  // Il logo eredita il colore fisso della cornice (mix-blend-mode fa il resto)
+  color: inherit;
+  transition: opacity var(--dur-ui) var(--ease-smooth);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.frame-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+
+  @media (max-width: 767px) {
+    gap: 1rem;
+  }
+}
+
+// Audio toggle — placeholder visivo (sistema audio: M7)
+.audio-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  color: var(--ink);
+  transition: transform var(--dur-ui) var(--ease-smooth);
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.06);
+  }
+
+  @media (max-width: 767px) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// CTA pillola — inverte i colori del tema, come nelle reference
+.btn-frame-cta {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: transform var(--dur-ui) var(--ease-smooth),
+              box-shadow var(--dur-ui) var(--ease-smooth);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 25%, transparent);
+  }
+
+  @media (max-width: 767px) {
+    display: none; // su mobile resta nel menu
+  }
+}
+
+.menu-toggle {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-ui) var(--ease-smooth);
+  }
+
+  &:hover::after,
+  &[aria-expanded='true']::after {
+    transform: scaleX(1);
+  }
+}
+
+// ── MENU INTERIM (pannello semplice; il fullscreen arriva in M3) ──
+.site-menu {
+  position: fixed;
+  top: calc(var(--frame-h) + 0.5rem);
+  right: var(--frame-pad);
+  z-index: 99;
+  min-width: 240px;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
+
+  &[hidden] {
+    display: none;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  a {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.6rem;
+    font-family: $font-display;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--fg);
+    transition: background var(--dur-ui) var(--ease-smooth),
+                color var(--dur-ui) var(--ease-smooth);
+
+    &:hover {
+      background: color-mix(in srgb, var(--fg) 6%, transparent);
+      color: var(--accent);
+    }
+  }
+
+  .menu-cta {
+    margin-top: 0.75rem;
+    text-align: center;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+
+    &:hover {
+      background: var(--accent);
+      color: var(--bg);
+      opacity: 0.85;
+    }
+  }
+}
+
+// ── FOOTER-CORNICE ──
+.frame-copy {
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  max-width: 220px;
+
+  strong {
+    font-weight: 700;
+  }
+
+  @media (max-width: 767px) {
+    max-width: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none; 
+  }
+}
+
+
+.frame-right {
+  position: relative;
+  text-align: right;
+}
+
+// "SCROLL TO EXPLORE" vive solo nella hero…
+.frame-scrollcue {
+  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+
+  strong {
+    color: var(--accent);
+  }
+}
+
+// …e viene sostituito dai social dopo il primo scroll
+.frame-social {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+
+  a {
+    transition: color var(--dur-ui) var(--ease-smooth);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+body.scrolled {
+  .frame-scrollcue {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+
+  .frame-social {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}

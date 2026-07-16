@@ -8,26 +8,9 @@
   letter-spacing: 0.1em;
 }
 
-.custom-input {
-  background: hsla(0, 0%, 100%, 0.03); 
-  border: 1px solid hsla(0, 0%, 95%, 0.08);
-  color: hsl(var(--foreground));
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  transition: $transition-smooth;
-  box-shadow: none;
-
-  &::placeholder {
-    color: hsla(0, 0%, 95%, 0.3);
-  }
-
-  &:focus {
-    background: hsla(0, 0%, 100%, 0.05);
-    border-color: hsla(var(--primary), 0.5);
-    box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
-    color: hsl(var(--foreground));
-  }
-}
+// .custom-input: rimossa da qui, era codice morto — la classe è usata solo
+// nella modale di contatto e viene definita in about.scss (.modal-overlay .custom-input),
+// che la sovrascriveva comunque per specificità. Unica fonte di verità ora è lì.
 
 .resize-none {
   resize: none;

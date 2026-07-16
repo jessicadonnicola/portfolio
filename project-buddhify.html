@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jessica Donnicola">
-    <meta property="og:title" content="AI Agents Project by Jessica Donnicola | UX/UI Designer">
-    <meta property="og:description" content="Project focused on automating email management and appointment scheduling through an AI agent built with n8n.">
-    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/agentAI.png">
-    <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-aiAgent.html">
+    <meta property="og:title" content="Buddhify Project by Jessica Donnicola | UX/UI Designer">
+    <meta property="og:description" content="A UX case study exploring how a contextual AI assistant can improve clarity, accessibility and decision-making in a mobile meditation experience.">
+    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/buddy-preview.png">
+    <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-buddhify.html">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="assets/img/svg/favicon.svg">
-    <title>Case Study - UX/UI Design</title>
+    <title>Jessica Donnicola — Creative UX/UI & Web Design</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -20,277 +20,287 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
-<body>
-  <header>
-<nav class="navbar navbar-expand-md fixed-top navbar-alien animate-fade-down">
-  <div class="container custom-container glass-nav rounded-pill px-4 py-2 mt-3">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="assets/img/svg/logo.svg" alt="Logo" height="30">
-    </a>
+<body class="cs-body" style="--cs-accent: #7552E0;">
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-      </div>
-    </button>
+  <!-- Barra di progresso scroll -->
+  <div class="cs-progress" aria-hidden="true"><span id="csProgressBar"></span></div>
 
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto gap-md-4">
-        <li class="nav-item">
-          <a class="nav-link" href="works.html">Works</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-      
-      <div class="d-none d-md-block">
-        <a href="contact.html" class="btn btn-gradient btn-sm px-4">Let's talk</a>
-      </div>
-    </div>
-  </div>
-</nav>
-</header>
-<main class="project-detail-page pb-5 mb-5 framer-hidden">
-  <div class="container custom-container">
+  <!-- Pulsante di chiusura fisso -->
+  <a href="/#works" class="cs-close" aria-label="Close case study and go back to works">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
 
-    <!-- Navigation -->
-    <nav class="pt-5 mt-5 mb-4" data-aos="fade-up">
-      <a href="works.html" class="back-link">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="rotate-arrow">
-          <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        All works
-      </a>
-    </nav>
+  <main class="cs-page">
+    <article class="cs-sheet">
 
-    <!-- Hero Section -->
-    <header class="mb-5" data-aos="fade-up">
-      <div class="badge-custom d-inline-block mb-3">UX Case Study</div>
-      <h1 class="display-3 fw-bold text-white mb-4 tracking-tight">AI Conversational Assistant for Buddhify</h1>
-      <p class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-        UX case study exploring how an AI contextual assistant improves clarity, accessibility, and decision-making in a mobile meditation experience.
-      </p>
-    </header>
+      <!-- ============ HERO ============ -->
+      <header class="cs-section cs-hero" data-aos="fade-up">
+        <span class="cs-eyebrow">Buddhify · UX Concept · Conversational Design</span>
+        <h1 class="cs-title">An AI conversational assistant for Buddhify</h1>
+        <p class="cs-lead">
+          A UX case study exploring how a contextual AI assistant can improve clarity, accessibility
+          and decision-making in a mobile meditation experience — reducing cognitive load instead of
+          adding another layer of noise.
+        </p>
 
-    <!-- Hero Image -->
-    <div class="hero-project-image mb-5" data-aos="zoom-in" data-aos-delay="200">
-      <div class="glass-image-container aspect-16-9">
-        <img src="assets/img/png/buddhify.png" alt="Buddhify mobile mockup with active chatbot" class="project-img">
-      </div>
-    </div>
-
-    <!-- Context & Problem Section -->
-    <div class="row g-5 mb-5" data-aos="fade-up">
-      <section class="col-md-6">
-        <h2 class="h3 fw-bold text-white mb-4">Context</h2>
-        <div class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-          <p>Buddhify is a meditation platform designed for users with busy modern lifestyles, offering short sessions adaptable to different moments of the day.</p>
-          <p>The mobile website functions to communicate the product's values, mission, and unique features. The ultimate business goal remains guiding users to download the app.</p>
+        <div class="cs-figure cs-figure-hero" data-aos="zoom-in" data-aos-delay="150">
+           <video autoplay loop muted playsinline poster="assets/img/png/ecodream-hero-desktop.png">
+          <source src="assets/img/video/buddy-demo.mp4" type="video/mp4">
+          Il tuo browser non supporta i video.
+        </video>
         </div>
-        <div class="glass-image-container aspect-4-3 mt-4">
-          <img src="assets/img/png/buddhy-context.png" alt="Original mobile homepage screenshot" class="project-img">
+
+           <div class="cs-cta-row" data-aos="fade-up">
+  <a href="https://drive.google.com/file/d/1VQe5OXEkmc3Ie0P_ZKXolcDJKraqSgjl/view?usp=sharing"
+     class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Read full document
+  </a>
+
+  <a href="#research" class="cs-btn-anchor">
+    Explore case study
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </a>
+</div> 
+      </header>
+
+      <!-- ============ PROJECT INFO ============ -->
+      <section class="cs-section cs-info" data-aos="fade-up" id="research">
+        <div class="cs-info-grid">
+          <div class="cs-info-item">
+            <span class="cs-info-label">My role</span>
+            <p>UX Designer — analysis, concept design, content strategy, UX writing, interaction design.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Project type</span>
+            <p>Self-initiated UX concept exploring conversational AI in an existing product.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Platform</span>
+            <p>Buddhify mobile website — the touchpoint that drives users to download the app.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Deliverables</span>
+            <p>UX analysis, chatbot concept, tone of voice guidelines, UI mockups, interaction flows.</p>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <ol class="cs-process">
+          <li><span>01</span>Context</li>
+          <li><span>02</span>Problem</li>
+          <li><span>03</span>Opportunity</li>
+          <li><span>04</span>Solution</li>
+          <li><span>05</span>Content strategy</li>
+          <li><span>06</span>Interaction</li>
+        </ol>
+      </section>
+
+      <!-- ============ 01 · CONTEXT ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>01</b> Context</span>
+        <h2 class="cs-h2">Meditation for busy modern lifestyles</h2>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <p class="cs-body-text">
+              Buddhify is a meditation platform designed for people with busy modern lifestyles,
+              offering short sessions adaptable to different moments of the day.
+            </p>
+            <p class="cs-body-text">
+              The mobile website communicates the product's values, mission and unique features —
+              with one ultimate business goal: <strong>guiding users to download the app</strong>.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="cs-figure">
+              <img src="assets/img/png/buddy-home.png" alt="Original Buddhify mobile homepage">
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="col-md-6">
-        <h2 class="h3 fw-bold text-white mb-4">Problem Statement</h2>
-        <div class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-          <p>The primary UX issue relates to weak information hierarchy and complex readability on mobile, which leads to:</p>
-          <ul class="text-white-50 ps-3">
-            <li>High cognitive load</li>
-            <li>Difficulty understanding the true value of the product</li>
-            <li>Lack of clarity regarding content access and pricing</li>
-            <li>Frustration during mobile navigation</li>
-          </ul>
-        </div>
-        <div class="glass-image-container aspect-4-3 mt-4">
-          <img src="assets/img/png/buddhy-friction.png" alt="UI screen annotations showing friction points" class="project-img">
+      <!-- ============ 02 · PROBLEM ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>02</b> Problem statement</span>
+        <h2 class="cs-h2">Weak hierarchy, heavy reading, high effort</h2>
+        <p class="cs-body-text">
+          The primary UX issue relates to weak information hierarchy and complex readability on
+          mobile, which leads to:
+        </p>
+
+        <ul class="cs-problem-list">
+          <li><span>1</span><div><strong>High cognitive load</strong> — long-form content forces users to process too much at once.</div></li>
+          <li><span>2</span><div><strong>Unclear value proposition</strong> — the true value of the product is hard to grasp quickly.</div></li>
+          <li><span>3</span><div><strong>Opaque access &amp; pricing</strong> — no immediate clarity on how content is accessed and what it costs.</div></li>
+          <li><span>4</span><div><strong>Navigation frustration</strong> — scroll-heavy layouts create disorientation on mobile.</div></li>
+        </ul>
+
+        <div class="cs-figure mt-4" data-aos="fade-up">
+          <img src="assets/img/png/buddhy-friction.png" alt="UI annotations highlighting friction points on the current site">
         </div>
       </section>
-    </div>
 
-    <!-- UX Opportunity Highlight -->
-    <section class="mb-5 py-4 border-top border-bottom border-white border-opacity-10" data-aos="fade-up">
-          <span class="text-uppercase small tracking-widest text-white-50">The UX Opportunity</span>
-          <h3 class="h2 fw-bold text-white mt-2 mb-3">AI Conversational Contextual Assistant</h3>
-          <p class="project-description  lh-lg" style="font-size: 1.1rem; ">The design opportunity focuses on reducing cognitive effort and enhancing immediate comprehension by offering an alternative to traditional scroll-heavy layouts.</p>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="mb-5" data-aos="fade-up">
-      <h2 class="h3 fw-bold text-white mb-4">The Solution</h2>
-      <div class="row g-4 align-items-center">
-        <div class="col-md-6">
-          <div class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-            <p>I designed a contextual AI chatbot integrated into the mobile site, accessible via a persistent floating action bubble. Its core functions include:</p>
-            <ul class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-              <li>Summarizing long-form content blocks</li>
-              <li>Providing instant answers to FAQs (pricing, app access, and usage)</li>
-              <li>Strategically highlighting key information</li>
-              <li>Guiding users through micro-step decision support</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="glass-image-container aspect-4-3">
-            <img src="assets/img/png/buddhy-chatbot.png" alt="Chatbot UI conversation example mockup" class="project-img">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- UX Value / Impact -->
-    <section class="mb-5" data-aos="fade-up">
-      <h2 class="h3 fw-bold text-white mb-4">UX Value & Impact</h2>
-          <div class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-            <p>The implementation of the contextual assistant introduces value across the user experience by:</p>
-            <ul class="project-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-              <li>Drastically reducing overall <strong>cognitive load</strong></li>
-              <li>Improving immediate comprehension of the product ecosystem</li>
-              <li>Providing a more guided, fluid, and seamless navigation experience</li>
-              <li>Decreasing user frustration and mitigating mobile drop-off rates</li>
-            </ul>
-          </div>
-    </section>
-
-    <!-- Content Strategy: Tone of Voice & UX Writing -->
-    <section class="mb-5" data-aos="fade-up">
-      <h2 class="h3 fw-bold text-white mb-4">Content Strategy</h2>
-      <div class="row g-4">
-        <!-- Tone of Voice Card -->
-        <div class="col-md-6">
-          <div class="p-4 rounded-4" style="background: hsla(0, 0%, 100%, 0.02); border: 1px solid hsla(0, 0%, 100%, 0.05);">
-            <h3 class="h5 fw-bold text-white mb-3">Tone of Voice (Mindfulness Oriented)</h3>
-            <p class="text-white-50 lh-lg">Designed to be fully coherent with the brand's core ecosystem:</p>
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="tool-tag">Calm & reassuring</span>
-              <span class="tool-tag">Welcoming</span>
-              <span class="tool-tag">Clear & simple</span>
-              <span class="tool-tag">Action-oriented without pressure</span>
-            </div>
-            <div class="glass-image-container aspect-16-9">
-          <video autoplay loop muted playsinline class="project-img">
-              <source src="assets/img/video/buddhy-text.mp4" type="video/mp4">Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <!-- UX Writing Principles Card -->
-        <div class="col-md-6">
-          <div class="p-4 rounded-4" style="background: hsla(0, 0%, 100%, 0.02); border: 1px solid hsla(0, 0%, 100%, 0.05);">
-            <h3 class="h5 fw-bold text-white mb-3">UX Writing Principles</h3>
-            <ul class="text-white-50 lh-lg">
-              <li>Short, easily scannable sentences and direct phrasing</li>
-              <li>Progressive disclosure of complex details</li>
-              <li>Strategic use of quick replies and guided flows</li>
-              <li>Carefully avoiding an overly promotional tone</li>
-            </ul>
-            <div class="glass-image-container aspect-16-9">
-                 <img src="assets/img/png/quick-replies.png" alt="Chat UI showcasing highlighted bot messages" class="project-img">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interaction Design -->
-    <section class="mb-5" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-6">
-          <h2 class="h3 fw-bold text-white mb-3">Interaction Design</h2>
-          <p class="text-white-50 lh-lgproject-description  lh-lg" style="font-size: 1.1rem; max-width: 850px;">
-            Access is granted via a persistent floating bubble reading <em>“Need help?”</em>. It relies entirely on manual user activation to guarantee targeted support during moments of disorientation—most notably after heavy scrolling or when actively looking for key information like pricing tiers.
+      <!-- ============ THE OPPORTUNITY (banda scura, momento di contrasto) ============ -->
+      <section class="cs-band" data-aos="fade-up">
+        <div class="cs-band-inner">
+          <span class="cs-eyebrow cs-eyebrow-light"><b>03</b> The UX opportunity</span>
+          <h2 class="cs-h2">A contextual assistant, not another feature</h2>
+          <p class="cs-body-text">
+            The design opportunity focuses on <strong>reducing cognitive effort and enhancing immediate
+            comprehension</strong> by offering an alternative to traditional scroll-heavy layouts —
+            a conversational layer that meets users exactly where they get lost.
           </p>
         </div>
-        <div class="col-md-6">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/interaction.png" alt="Floating button activation and user journey highlight" class="project-img">
+      </section>
+
+      <!-- ============ 04 · SOLUTION ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>04</b> The solution</span>
+        <h2 class="cs-h2">A contextual AI chatbot, one tap away</h2>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <p class="cs-body-text">
+              I designed a contextual AI chatbot integrated into the mobile site, accessible via a
+              persistent floating action bubble. Its core functions:
+            </p>
+            <ul class="cs-problem-list">
+              <li><span>a</span><div><strong>Summarizing</strong> long-form content blocks on demand.</div></li>
+              <li><span>b</span><div><strong>Instant answers</strong> to FAQs — pricing, app access, usage.</div></li>
+              <li><span>c</span><div><strong>Highlighting</strong> key information strategically.</div></li>
+              <li><span>d</span><div><strong>Micro-step decision support</strong> through guided flows.</div></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="cs-figure">
+              <img src="assets/img/png/buddy-chat-mock.png" alt="Chatbot conversation UI mockup">
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Outcome / Closing -->
-    <section class="mb-5 text-center py-5 rounded-4" style="background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.01), hsla(0, 0%, 100%, 0.03)); border: 1px solid hsla(0, 0%, 100%, 0.05);" data-aos="fade-up">
-      <div class="container" style="max-width: 750px;">
-        <h2 class="h3 fw-bold text-white mb-3">Conclusions & Outcome</h2>
-        <p class="lead text-white-50 mb-5" style="font-size: 1.15rem;">
-          The assistant does not function as a promotional tool, but rather as an intentional <strong>cognitive support layer</strong> built exclusively to enhance the user's comprehension of the product.
-        </p>
-        <div class="glass-image-container aspect-16-9 mx-auto" style="max-width: 600px;">
-                <video autoplay loop muted playsinline class="project-img">
-              <source src="assets/img/video/ai-chat.mp4" type="video/mp4">Your browser does not support the video tag.
-              </video>
+      <!-- ============ 05 · CONTENT STRATEGY ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>05</b> Content strategy</span>
+        <h2 class="cs-h2">Words designed to calm, not to sell</h2>
+
+        <div class="row g-4">
+          <!-- Tone of Voice -->
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="cs-insight">
+              <span class="cs-insight-num">Tone of voice</span>
+              <h3>Mindfulness oriented</h3>
+              <p>Designed to be fully coherent with the brand's core ecosystem.</p>
+              <div class="d-flex flex-wrap gap-2 my-3">
+                <span class="cs-tag">Calm &amp; reassuring</span>
+                <span class="cs-tag">Welcoming</span>
+                <span class="cs-tag">Clear &amp; simple</span>
+                <span class="cs-tag">Action-oriented, no pressure</span>
+              </div>
+              <div class="cs-figure">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/img/video/buddhy-text.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- UX Writing -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="cs-insight">
+              <span class="cs-insight-num">UX writing principles</span>
+              <h3>Scannable, progressive, honest</h3>
+              <p>
+                Short scannable sentences and direct phrasing · progressive disclosure of complex
+                details · strategic quick replies and guided flows · no overly promotional tone.
+              </p>
+              <div class="cs-figure mt-3">
+                <img src="assets/img/png/quick-replies.png" alt="Chat UI showcasing quick replies and highlighted bot messages">
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Final CTA & Next Project Link -->
-    <footer class="next-project-section border-top border-white border-opacity-10 pt-5 mt-5" data-aos="fade-up">
-      <!-- Final CTA Box -->
-      <div class="p-5 rounded-4 mb-5 text-center align-items-center" style="background: hsla(12, 100%, 64%, 0.03); border: 1px solid hsla(12, 100%, 64%, 0.15);">
-        <h3 class="h2 fw-bold text-white mb-3">Explore the full project</h3>
-        <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">
-          Discover the complete process, from foundational UX research to AI chatbot engineering and final prototype interactions.
-        </p>
-        <a href="https://drive.google.com/file/d/1VQe5OXEkmc3Ie0P_ZKXolcDJKraqSgjl/view?usp=sharing" class="btn btn-gradient px-4 py-3 rounded-pill fw-bold d-inline-flex align-items-center gap-2" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View full case study
-        </a>
-      </div>
-
-      <!-- Next Project Link -->
-      <p class="small text-uppercase tracking-widest text-white-50 mb-4">Next Project</p>
-      <a href="project-aiAgent.html" class="next-project-link d-flex justify-content-between align-items-center group text-decoration-none">
-        <h2 class="display-5 fw-bold text-white transition-smooth">AI Agent Project</h2>
-        <div class="arrow-circle">
-          <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
-            <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+      <!-- ============ 06 · INTERACTION DESIGN ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>06</b> Interaction design</span>
+        <h2 class="cs-h2">Help that waits to be asked</h2>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <p class="cs-body-text">
+              Access is granted via a persistent floating bubble reading <em>"Need help?"</em>.
+              It relies entirely on <strong>manual user activation</strong>, guaranteeing targeted
+              support during moments of disorientation — most notably after heavy scrolling, or when
+              actively looking for key information like pricing tiers.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="cs-figure">
+              <img src="assets/img/png/buddy-mockups.png" alt="Floating button activation along the user journey">
+            </div>
+          </div>
         </div>
-      </a>
-    </footer>
+      </section>
 
-  </div>
-</main>
-<footer class="footer-section py-5 relative">
-  <div class="container custom-container">
-    <div class="line-gradient mb-5"></div>
+      <!-- ============ 07 · OUTCOME ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>07</b> Conclusions &amp; outcome</span>
+        <h2 class="cs-h2">A cognitive support layer</h2>
+        <p class="cs-body-text">
+          The implementation of the contextual assistant introduces value across the whole
+          experience: it drastically reduces <strong>cognitive load</strong>, improves immediate
+          comprehension of the product ecosystem, provides a more guided and fluid navigation, and
+          mitigates mobile drop-off caused by frustration.
+        </p>
+        <p class="cs-outcome">
+          The assistant is not a promotional tool — it's an intentional cognitive support layer,
+          built exclusively to enhance the user's comprehension of the product.
+        </p>
+        <div class="cs-figure mx-auto" style="max-width: 640px;" data-aos="fade-up">
+          <video autoplay loop muted playsinline>
+            <source src="assets/img/video/ai-chat.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
 
-    <div class="footer-content d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
-      
-      <div class="footer-left d-flex align-items-center gap-3">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/img/svg/logo.svg" alt="Logo" height="20">
-        </a>
-        <span class="footer-copy">© 2026 — DESIGNED & CODED WITH ♡ BY ME</span>
-      </div>
+      <!-- ============ THANKS + NEXT ============ -->
+      <footer class="cs-section cs-end">
+        <p class="cs-thanks" data-aos="fade-up">Thanks for watching</p>
 
-          <div class="footer-right d-flex align-items-center gap-4">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=donnicolajessica@gmail.com" class="footer-link" target="_blank" 
-          rel="noopener noreferrer">Email</a>
-        <a href="https://www.linkedin.com/in/jessica-donnicola-a59453378"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link d-flex align-items-center gap-2">
-          LinkedIn
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </a>
-      </div>
+        <div class="cs-end-actions" data-aos="fade-up">
+          <a href="https://drive.google.com/file/d/1VQe5OXEkmc3Ie0P_ZKXolcDJKraqSgjl/view?usp=sharing"
+             class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">Read the full case study</a>
+        </div>
 
-    </div>
-  </div>
-</footer>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JS -->
+        <a href="/#works" class="cs-back-all">← Back to all works</a>
+      </footer>
 
-<script src="assets/js/script.js"></script>
+    </article>
+  </main>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+    // Barra di progresso scroll
+    const bar = document.getElementById('csProgressBar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.transform = `scaleX(${scrolled})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ESC per chiudere il case study
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.location.href = '/#works';
+    });
+  </script>
 </body>
 </html>

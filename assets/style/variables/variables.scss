@@ -1,41 +1,78 @@
-// _variables.scss
+// _variables.scss — M3 "Concrete Press": editoriale, brutalista, paper/ink
+// Palette derivata dai token oklch del mockup Lovable, convertiti in hex
+// per compatibilità con l'interpolazione colore di GSAP.
 
 $transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-$font-main: 'Inter', sans-serif;
+$font-main: 'Inter', sans-serif;        // body text, invariato
+$font-display: 'Space Grotesk', sans-serif; // label/overline/UI piccola (NON i titoli)
+$font-label: $font-display;             // alias semantico per il nuovo codice
+$font-title: 'Unbounded', sans-serif;   // titoli enormi, verbi Process, menu fullscreen
+$font-accent: 'Fraunces', Georgia, serif; // riga corsiva editoriale, uso con parsimonia
 
 :root {
-  --background: 230 16% 14%;
-  --foreground: 0 0% 95%;
+  // ── SISTEMA TEMI (semantico, animato da GSAP via scroll) ──
+  // Questi valori sono l'UNICO punto che cambia colore tra "paper" e "ink".
+  // Tutto il resto del sito li eredita. Default: theme-ink (hero parte scuro).
+  --bg: #100D09;
+  --fg: #E9E4DA;
+  --accent: #F46622;     // "signal" — arancio bruciato, unico accento cromatico
+  --surface: #1E1A15;    // "card" nel tema ink
 
+  // ── PALETTE FISSA (non cambia col tema, riferimenti diretti) ──
+  --coral: #F46622;        // alias retro-compatibile → ora punta al signal
+  --coral-soft: #C33E00;   // signal-deep, per hover/stati attivi
+  --ink: #18130E;          // ink nel tema "paper" (testo su fondo chiaro)
+  --paper: #EDE9E1;        // paper nel tema "paper" (fondo chiaro caldo)
+
+  // ── NUOVI TOKEN EDITORIALI ──
+  --concrete: #D8D4CA;                     // superficie neutra secondaria (tema paper)
+  --signal: #E74F00;                       // arancio segnale (tema paper)
+  --signal-deep: #AE3100;
+  --hairline: rgba(24, 19, 14, 0.18);       // bordi sottili, si adatta col tema via JS
+  --card: #F6F3EC;
+  --muted-fg: #5A544E;
+
+  // ── EASING DI PROGETTO (vocabolario motion condiviso) ──
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);      // reveal, entrate
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);          // micro-hover, UI
+  --dur-reveal: 0.9s;
+  --dur-ui: 0.35s;
+
+  // ── LAYOUT ──
+  --frame-h: 88px;          // altezza cornice (header/footer)
+  --frame-pad: 3rem;        // padding orizzontale cornice
+  @media (max-width: 767px) {
+    --frame-h: 60px;
+    --frame-pad: 1.25rem;
+  }
+
+  // ── LEGACY (triplette HSL usate dai componenti non ancora migrati) ──
+  // NON aggiungere nuovi usi. Si eliminano man mano che le sezioni migrano.
+  --background: 232 12% 13%;        // #1E1E26
+  --foreground: 0 0% 95%;
   --primary: 12 100% 64%;
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 14 100% 78%;
-  --secondary-foreground: 230 16% 14%;
-
+  --secondary: 353 100% 75%;        // #FF7F8F
+  --secondary-foreground: 232 12% 13%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 100%;
-
-  --accent: 14 100% 78%;
-  --accent-foreground: 230 16% 14%;
-
+  --accent-legacy: 353 100% 75%;
   --border: 0 0% 95% / 0.08;
   --input: 0 0% 95% / 0.08;
   --ring: 12 100% 64%;
-
   --glow-coral: 0 0 40px hsl(12 100% 64% / 0.15);
   --glow-coral-strong: 0 0 60px hsl(12 100% 64% / 0.25);
 }
 
-// Mixins
+// Mixins (invariati)
 @mixin text-gradient-coral {
-  background-image: linear-gradient(135deg, hsl(12 100% 64%), hsl(14 100% 78%));
+  background-image: linear-gradient(135deg, var(--coral), var(--coral-soft));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @mixin bg-gradient-coral {
-  background: linear-gradient(135deg, hsl(12 100% 64%), hsl(14 100% 78%));
+  background: linear-gradient(135deg, var(--coral), var(--coral-soft));
   color: hsl(var(--primary-foreground));
 }

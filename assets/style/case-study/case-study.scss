@@ -1,106 +1,770 @@
+// =============================================================
+// CASE STUDY — layout "foglio Behance"
+// Sfondo scuro neutro a tutta pagina + foglio bianco distaccato.
+// Tutto è scopato sotto .cs-body / .cs-page, quindi non tocca
+// il resto del sito. L'accento del progetto si imposta per-pagina
+// con la variabile --cs-accent sul <body>.
+// =============================================================
 @use '../variables/variables' as *;
 
-.project-detail-page {
-  // Utility Classes
-  .aspect-16-9 { aspect-ratio: 16 / 9; }
-  .aspect-4-3 { aspect-ratio: 4 / 3; }
-  padding-top: 80px; 
-  min-height: 100vh;
+// ---- Token locali del case study (neutrali, NON brand) -------
+$cs-backdrop: hsl(0 0% 7%);        // sfondo scuro neutro dietro il foglio
+$cs-paper:    hsl(0 0% 100%);      // il foglio
+$cs-ink:      hsl(0 0% 10%);       // testo principale sul foglio
+$cs-ink-soft: hsl(0 0% 38%);       // testo secondario
+$cs-line:     hsl(0 0% 90%);       // bordi/divisori chiari
+$cs-band:     hsl(0 0% 9%);        // banda scura interna (design guidelines)
 
-  .badge-custom {
-    padding: 0.4rem 1rem;
-    border-radius: 999px;
-    border: 1px solid hsla(0, 0%, 95%, 0.08);
-    font-size: 0.75rem;
-    color: hsla(0, 0%, 95%, 0.5);
-  }
+// =============================================================
+// BODY / BACKDROP
+// =============================================================
+.cs-body {
+  background: $cs-backdrop;
+  font-family: $font-main;
+  --cs-accent: #{$cs-ink}; // fallback: accento neutro se la pagina non lo imposta
+}
 
-  .tool-tag {
-    padding: 0.2rem 0.8rem;
-    background: hsla(12, 100%, 64%, 0.1);
-    color: hsl(var(--primary));
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
+// Barra di progresso scroll
+.cs-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 1001;
+  background: hsl(0 0% 100% / 0.06);
 
-  .glass-image-container {
-    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.02), hsla(0, 0%, 100%, 0.05));
-    border: 1px solid hsla(0, 0%, 95%, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    position: relative;
-
-    .project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  span {
     display: block;
+    height: 100%;
+    background: var(--cs-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+
+// Pulsante di chiusura fisso
+.cs-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsla(0, 0%, 0%, 0.8);
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0 0% 100% / 0.12);
+  backdrop-filter: blur(10px);
+  transition: $transition-smooth;
+
+  &:hover {
+    color: $cs-ink;
+    background: hsla(0, 0%, 100%, 0.879);
+    transform: rotate(90deg);
   }
 
-  &:hover .project-img {
-    transform: scale(1.05);
+  &:focus-visible {
+    outline: 2px solid $cs-paper;
+    outline-offset: 3px;
   }
+}
+
+// =============================================================
+// IL FOGLIO
+// =============================================================
+.cs-page {
+  padding: clamp(1rem, 4vw, 3.5rem) clamp(0.75rem, 3vw, 2rem);
+}
+
+.cs-sheet {
+  max-width: 1240px;
+  margin-inline: auto;
+  background: $cs-paper;
+  color: $cs-ink;
+  border-radius: clamp(16px, 2vw, 28px);
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.08),
+    0 30px 80px hsl(0 0% 0% / 0.55);
+  overflow: hidden; // permette alla banda scura di andare full-bleed
+}
+
+// Sezione standard dentro il foglio
+.cs-section {
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 6vw, 6rem);
+
+  & + .cs-section {
+    border-top: 1px solid $cs-line;
+  }
+}
+
+// =============================================================
+// TIPOGRAFIA
+// =============================================================
+.cs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $cs-ink-soft;
+  margin-bottom: 1rem;
+
+  b {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    color: var(--cs-accent);
+  }
+
+  &.cs-eyebrow-light { color: hsl(0 0% 95% / 0.55); }
+}
+
+.cs-title {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  // max-width: 18ch;
+}
+
+.cs-h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  // max-width: 26ch;
+}
+
+.cs-lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.7;
+  color: $cs-ink-soft;
+  max-width: 62ch;
+  margin-bottom: 2.5rem;
+}
+
+.cs-body-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $cs-ink-soft;
+  max-width: 68ch;
+  margin-bottom: 2rem;
+
+  strong { color: $cs-ink; font-weight: 600; }
+}
+
+// =============================================================
+// BOTTONI (versione light, indipendenti dal tema del sito)
+// =============================================================
+.cs-cta-row {
+  display: flex;
+  align-items: center; // Allinea verticalmente bottone e testo
+  flex-wrap: wrap;
+  gap: 1.5rem; // Leggermente più spazio per dare respiro
+}
+
+.cs-btn-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $cs-ink-soft;
+  text-decoration: none;
+  transition: $transition-smooth;
+
+  svg {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  &:hover {
+    color: var(--cs-accent); // Prende il colore del brand Ecodream
     
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      box-shadow: var(--glow-coral);
-      pointer-events: none;
+    svg {
+      transform: translateY(3px); // Micro-interazione magnetica verso il basso
     }
   }
+}
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: $transition-smooth;
 
-  .back-link {
-    display: inline-flex;
-    align-items: center;
+  &-primary {
+    background: $cs-ink;
+    color: $cs-paper;
+    &:hover { background: var(--cs-accent); color: $cs-paper; }
+  }
+
+  &-ghost {
+    border: 1px solid $cs-line;
+    color: $cs-ink;
+    &:hover { border-color: $cs-ink; }
+  }
+}
+
+// =============================================================
+// PROJECT INFO + PROCESS
+// =============================================================
+.cs-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.cs-info-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+  margin-bottom: 0.5rem;
+}
+
+.cs-info-item p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $cs-ink-soft;
+  margin: 0;
+}
+
+.cs-process {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  list-style: none;
+  padding: 1.5rem 0 0;
+  margin: 2.5rem 0 0;
+  border-top: 1px solid $cs-line;
+
+  li {
+    display: flex;
+    align-items: baseline;
     gap: 0.5rem;
-    font-size: 0.875rem;
-    color: hsla(0, 0%, 95%, 0.4);
-    text-decoration: none;
-    transition: $transition-smooth;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $cs-ink;
 
-    .rotate-arrow {
-      transform: rotate(225deg);
-      transition: $transition-smooth;
-    }
-
-    &:hover {
-      color: hsl(var(--primary));
-      .rotate-arrow { transform: rotate(225deg) translate(2px, -2px); }
-    }
-  }
-
-
-  .next-project-link {
-    h2:hover {
-      @include text-gradient-coral;
-    }
-
-    .arrow-circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 1px solid hsla(0, 0%, 95%, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: hsla(0, 0%, 95%, 0.4);
-      transition: $transition-smooth;
-    }
-
-    &:hover .arrow-circle {
-      border-color: hsla(12, 100%, 64%, 0.4);
-      background: hsla(12, 100%, 64%, 0.1);
-      color: hsl(var(--primary));
-      transform: scale(1.1);
+    span {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--cs-accent);
     }
   }
 }
 
+// =============================================================
+// IMMAGINI
+// =============================================================
+.cs-figure {
+  overflow: hidden;
+  background: hsl(0 0% 96%);
+  // border: 1px solid $cs-line;
+  border-radius: clamp(12px, 1.5vw, 20px);
 
 
+  img,
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  & + .cs-figure { margin-top: 1.5rem; }
+}
+
+.cs-figure-hero { margin-bottom: 2rem; }
+
+// Before / After
+.cs-figure-compare {
+  position: relative;
+  height: 100%;
+}
+
+.cs-compare-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &.cs-compare-before { background: hsl(0 0% 12% / 0.85); color: hsl(0 0% 95%); }
+  &.cs-compare-after  { background: var(--cs-accent); color: hsl(0 0% 100%); }
+}
+
+// =============================================================
+// PROBLEMI (analisi as-is)
+// =============================================================
+.cs-problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 0;
+
+  li {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid $cs-line;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $cs-ink-soft;
+
+    &:last-child { border-bottom: 0; }
+
+    strong { color: $cs-ink; }
+
+    span {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cs-accent);
+      border: 1.5px solid var(--cs-accent);
+    }
+  }
+}
+
+// =============================================================
+// INSIGHT CARDS
+// =============================================================
+.cs-insight {
+  height: 100%;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: hsl(0 0% 97%);
+  border: 1px solid $cs-line;
+
+  .cs-insight-num {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cs-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: $cs-ink-soft;
+    margin: 0;
+  }
+}
+
+// Tag/pill neutri (es. tone of voice, elenco schermate)
+.cs-tag {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $cs-ink;
+  background: hsl(0 0% 95%);
+  border: 1px solid $cs-line;
+}
+
+// =============================================================
+// BANDA SCURA (design guidelines) — full-bleed dentro il foglio
+// =============================================================
+.cs-band {
+  background: $cs-band;
+  color: hsl(0 0% 95%);
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 6vw, 6rem);
+
+  .cs-h2 { color: hsl(0 0% 98%); }
+  .cs-body-text { color: hsl(0 0% 95% / 0.65); strong { color: hsl(0 0% 98%); } }
+}
+
+.cs-band-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(0 0% 95% / 0.5);
+  margin-bottom: 1rem;
+
+}
+
+.cs-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.75rem;
+}
+
+.cs-swatch {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid hsl(0 0% 100% / 0.1);
+
+  &::before {
+    content: '';
+    display: block;
+    height: 70px;
+    background: var(--sw);
+  }
+
+  span, em {
+    display: block;
+    padding-inline: 0.75rem;
+    font-style: normal;
+  }
+  span { padding-top: 0.5rem; font-size: 0.78rem; font-weight: 600; }
+  em   { padding-bottom: 0.6rem; font-size: 0.7rem; color: hsl(0 0% 95% / 0.5); }
+}
+
+.cs-type-specimen {
+  border: 1px solid hsl(0 0% 100% / 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+
+  .cs-type-display {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+     font-family: "Raleway", sans-serif;
+  }
+
+    .cs-type-display-muuto {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+     font-family: "Arial", sans-serif;
+  }
+  .cs-type-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: hsl(0 0% 95% / 0.6);
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+  }
+   .cs-type-body-muuto {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: hsl(0 0% 95% / 0.6);
+    margin: 0;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+// =============================================================
+// OUTCOME + CHIUSURA
+// =============================================================
+.cs-outcome {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: $cs-ink;
+  max-width: 58ch;
+  margin-bottom: 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--cs-accent);
+}
+
+.cs-end {
+  text-align: center;
+}
+
+.cs-thanks {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.cs-end-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.cs-next {
+  display: block;
+  text-decoration: none;
+  color: $cs-ink;
+  padding: 2rem 0;
+  border-top: 1px solid $cs-line;
+  border-bottom: 1px solid $cs-line;
+  transition: $transition-smooth;
+
+  .cs-next-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    svg { transition: $transition-smooth; }
+  }
+
+  &:hover {
+    color: var(--cs-accent);
+    .cs-next-title svg { transform: translate(4px, -4px); }
+  }
+}
+
+.cs-back-all {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $cs-ink-soft;
+  text-decoration: none;
+
+  &:hover { color: $cs-ink; }
+}
+
+// =============================================================
+// ACCESSIBILITÀ / MOTION
+// =============================================================
+@media (prefers-reduced-motion: reduce) {
+  .cs-close,
+  .cs-btn,
+  .cs-next .cs-next-title svg {
+    transition: none;
+  }
+}
+
+
+// =============================================================
+// HERO MULTI-DEVICE SWITCHER
+// =============================================================
+.cs-hero-switcher {
+  margin-bottom: 2.5rem;
+}
+
+// La barra dei bottoni
+.cs-switch-tabs {
+  display: inline-flex;
+  background: hsl(0 0% 95%);
+  padding: 0.35rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  border: 1px solid $cs-line;
+}
+
+.cs-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: $cs-ink-soft;
+  cursor: pointer;
+  transition: $transition-smooth;
+
+  svg { opacity: 0.7; }
+
+  &.active {
+    background: $cs-paper;
+    color: var(--cs-accent);
+    box-shadow: 0 4px 12px hsl(0 0% 0% / 0.08);
+    
+    svg { opacity: 1; }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cs-accent);
+  }
+}
+
+// Logica di visualizzazione dei pannelli
+.cs-switch-panel {
+  display: none;
+  animation: csFadeIn 0.4s ease-out-cubic forwards;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Wrapper speciale per il mobile per non farlo diventare gigante a tutto schermo
+.cs-frame-mobile-wrapper {
+  display: flex;
+  justify-content: center;
+  background: hsl(0 0% 97%); // Sfondo neutro per far risaltare il mockup del telefono
+  border-radius: 16px;
+  border: 1px solid $cs-line;
+}
+
+.cs-frame-mobile {
+  max-width: 320px; // Proporzioni reali di uno smartphone
+  width: 100%;
+  box-shadow: 0 20px 40px hsl(0 0% 0% / 0.12);
+  border-radius: 24px; // Angoli più tondi stile smartphone
+  margin: 0 !important; // Sovrascrive margini esterni della figura standard
+}
+
+// Animazione di transizione soft al cambio tab
+@keyframes csFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+// ============================================================= NEW
+// =============================================================
+// 1. MARQUEE RESEARCH - SEZIONE 03 (Sito As-Is)
+// =============================================================
+.cs-research-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  // border-radius: clamp(12px, 1.5vw, 20px);
+  position: relative;
+  height: 420px; // Altezza dedicata alla sezione ricerca
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+}
+
+.cs-research-marquee-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  align-items: center;
+  animation: csResearchMarqueeX 40s linear infinite; // Animazione unica
+  
+  &:hover { 
+    animation-play-state: paused; 
+  }
+}
+
+.cs-research-marquee-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  padding: 2rem 1.2rem;
+}
+
+@keyframes csResearchMarqueeX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+// =============================================================
+// 2. MARQUEE UI DESIGN - SEZIONE 06 (Hi-Fi Screens con Zoom e Taglio)
+// =============================================================
+.cs-ui-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  // border: 1px solid $cs-line;
+  // border-radius: clamp(12px, 1.5vw, 20px);
+  position: relative;
+
+  // Altezze visibili del "box" della sezione
+  &.-desktop {
+    height: 560px; 
+    // background: hsl(0 0% 97%);
+    &::after {
+      // background: linear-gradient(to top, hsl(0, 100%, 100%) 15%, transparent);
+    }
+  }
+
+  &.-mobile { 
+    height: 660px; 
+    // background: hsl(0 0% 94%); 
+    &::after {
+      // background: linear-gradient(to top, hsl(0 100% 100%) 15%, transparent);
+    }
+  }
+
+  // Sfumatura morbida solo sul fondo per mascherare il taglio della UI
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px; // Altezza della sfumatura
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.cs-ui-marquee-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  align-items: flex-start; // IMPEDISCE IL TAGLIO IN ALTO: blocca le immagini al top del container
+  // Aumentato a 90s per rallentare il movimento ora che le immagini sono giganti
+  animation: csUiMarqueeX 90s linear infinite; 
+  
+  &:hover { 
+    animation-play-state: paused; 
+  }
+}
+
+.cs-ui-marquee-img {
+  width: auto;
+  display: block;
+  object-fit: contain;
+  // Padding: 2.5rem sopra (distanza dal bordo top), 2rem ai lati, 0 SOTTO per farla sfumare perfettamente
+  padding: 2.5rem 2rem 0 2rem; 
+
+  // LOGICA DI ZOOM: Aumenta o diminuisci questi pixel per controllare l'ingrandimento
+  .-desktop & {
+    height: 1300px; // L'immagine esce dal fondo del contenitore (560px) e mostra i testi grandi
+  }
+
+  .-mobile & {
+    height: 1600px; // Lo smartphone viene zoomato per rendere leggibili i dettagli della UI mobile
+  }
+}
+
+@keyframes csUiMarqueeX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

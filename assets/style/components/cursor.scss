@@ -1,0 +1,31 @@
+// _cursor.scss — M1.1
+// Orb che segue il cursore con delay (lerp in foundation.js).
+// COMPAGNO del cursore nativo, non sostituto: resta sottile, come da brief.
+// Non viene creato su touch device né con prefers-reduced-motion.
+
+.cursor-orb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;   // centrato sul punto
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 24px 6px color-mix(in srgb, var(--accent) 35%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth),
+              scale 0.35s var(--ease-smooth);
+
+  &.is-active {
+    opacity: 0.9;
+  }
+
+  // Sopra elementi interattivi: cresce e si ammorbidisce
+  &.is-hover {
+    scale: 2.4;
+    opacity: 0.35;
+  }
+}

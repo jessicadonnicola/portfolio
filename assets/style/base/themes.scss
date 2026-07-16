@@ -1,0 +1,144 @@
+@use '../variables/variables' as *;
+
+// ── TEMA SCOPED PER SEZIONE (M8) ──────────────────────────────────────────
+// Il theme engine JS anima --bg/--fg/--accent sul <html> per la cornice
+// (header/footer fissi) e per il cursore, in sync morbido con lo scroll.
+// Ma ogni sezione con [data-theme] deve ANCHE dipingersi da sola con i
+// valori corretti, senza dipendere dal timing dello scroll-trigger:
+// esattamente come fa Lovable, dove [data-theme="ink"]/[data-theme="paper"]
+// ridefiniscono le custom properties SOLO per quella sottoalbero DOM.
+// Questo garantisce che Works (ink) sia sempre scuro con testo chiaro e
+// About/Process (paper) sempre chiari con testo scuro, in ogni condizione.
+section[data-theme='paper'],
+footer[data-theme='paper'] {
+  --bg: #EDE9E1;
+  --fg: #18130E;
+  --accent: #E74F00;
+  --surface: #F6F3EC;
+  --hairline: rgba(24, 19, 14, 0.18);
+  --concrete: #D8D4CA;
+  --muted-fg: #5A544E;
+  --ink: #18130E;
+  --paper: #EDE9E1;
+
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+section[data-theme='ink'] {
+  --bg: #100D09;
+  --fg: #E9E4DA;
+  --accent: #F46622;
+  --surface: #1E1A15;
+  --hairline: rgba(233, 228, 218, 0.16);
+  --concrete: #2D2823;
+  --muted-fg: #9C9890;
+  --ink: #100D09;
+  --paper: #E9E4DA;
+
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+
+
+section[data-theme='light'],
+section[data-theme='coral'] {
+  color: var(--fg);
+
+  h1, h2, h3, h4, h5, h6,
+  .section-title,
+  .node-title,
+  .about-lead,
+  .about-lead strong,
+  .about-body strong {
+    color: var(--fg);
+  }
+
+  p,
+  .about-body,
+  .about-greeting,
+  .node-desc,
+  .work-desc,
+  .form-label {
+    color: color-mix(in srgb, var(--fg) 70%, transparent);
+  }
+
+  .about-aside {
+    color: color-mix(in srgb, var(--fg) 55%, transparent);
+    border-left-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  .overline-text {
+    color: var(--accent);
+  }
+
+  // Superfici vetro → si adattano al tema
+  .glass {
+    background: color-mix(in srgb, var(--surface) 55%, transparent);
+    border-color: color-mix(in srgb, var(--fg) 10%, transparent);
+  }
+}
+
+section[data-theme='coral'] .contact-form-wrapper {
+  background: #FFFFFF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: transparent;
+  box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+section[data-theme='light'],
+section[data-theme='coral'] {
+
+  // Timeline: card e dot usavano hsl(var(--background)) fisso
+  .node-info-card,
+  .node-dot {
+    background: var(--bg);
+  }
+
+  // Tag e input del form
+  .skill-tags span,
+  .skill-category-title {
+    color: color-mix(in srgb, var(--fg) 60%, transparent);
+    border-color: color-mix(in srgb, var(--fg) 15%, transparent);
+  }
+
+  .custom-input {
+    background: color-mix(in srgb, var(--fg) 4%, transparent);
+    border-color: color-mix(in srgb, var(--fg) 12%, transparent);
+    color: var(--fg);
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--fg) 35%, transparent);
+    }
+
+    &:focus {
+      background: color-mix(in srgb, var(--fg) 6%, transparent);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+  }
+
+  .reason-tag {
+    color: color-mix(in srgb, var(--fg) 55%, transparent);
+    border-color: color-mix(in srgb, var(--fg) 15%, transparent);
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+
+  .btn-check:checked + .reason-tag {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: transparent;
+  }
+}
+
+// Nel tema coral l'accento corallo non contrasta: diventa ink.
+// (Il theme engine JS anima --accent, questo è il fallback no-JS.)
+section[data-theme='coral'] {
+  --accent-fallback: var(--ink);
+}

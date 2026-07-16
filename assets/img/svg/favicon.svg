@@ -1,12 +1,5 @@
-<svg width="421" height="399" viewBox="0 0 421 399" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="421" height="398.1" rx="115" fill="url(#paint0_radial_133_7)"/>
-<path d="M149.991 200.657L150.063 200.587C150.303 200.375 150.544 200.163 150.802 199.951C151.782 199.086 152.78 198.265 153.831 197.47C165.44 188.528 180.069 183.197 195.963 183.197C233.667 183.197 264.226 213.165 264.226 250.125C264.226 287.103 233.667 317.071 195.963 317.071C158.446 317.071 127.977 287.376 127.709 250.646" stroke="white" stroke-width="42" stroke-miterlimit="10" stroke-linejoin="bevel"/>
-<path d="M294.172 81.0293L153.554 197.631L150.557 200.124L149.79 200.741L149.728 200.812" stroke="white" stroke-width="42" stroke-miterlimit="10" stroke-linejoin="bevel"/>
-<defs>
-<radialGradient id="paint0_radial_133_7" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(110.094 140.921) rotate(37.9777) scale(947.549 1002.05)">
-<stop stop-color="#FF6B4A"/>
-<stop offset="0.236086" stop-color="#FF7050"/>
-<stop offset="1" stop-color="#FFEAE6"/>
-</radialGradient>
-</defs>
+<svg width="651" height="651" viewBox="0 0 651 651" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="650" height="650" rx="180" fill="#100D09"/>
+<rect x="0.5" y="0.5" width="650" height="650" rx="180" stroke="black"/>
+<path d="M216.622 371.28C211.373 390.871 213.074 411.675 221.436 430.147C229.797 448.619 244.303 463.616 262.48 472.583C280.657 481.55 301.381 483.932 321.121 479.323C340.861 474.714 358.396 463.4 370.738 447.307C383.08 431.215 389.465 411.341 388.805 391.07C388.146 370.8 380.482 351.388 367.121 336.142C353.759 320.896 335.526 310.76 315.529 307.46C295.531 304.159 275.006 307.9 257.451 318.044L458.291 194.972" stroke="#EDE9E1" stroke-width="58"/>
 </svg>

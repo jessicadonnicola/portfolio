@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jessica Donnicola">
     <meta property="og:title" content="Ecodream Project by Jessica Donnicola | UX/UI Redesign">
     <meta property="og:description" content="I carried out a redesign of the Ecodream website, following the full UX/UI process—from research and discovery to wireframing, UI design, prototyping, and user testing.">
-    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/ecodream-hero.png">
+    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/ecodream-preview.png">
     <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-ecodream.html">
     <meta property="og:type" content="website">
      <link rel="icon" type="image/svg+xml" href="assets/img/svg/favicon.svg">
-    <title>Case Study - UX/UI Design</title>
+    <title>Jessica Donnicola — Creative UX/UI & Web Design</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -18,334 +18,306 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
-<body>
-  <header>
-<nav class="navbar navbar-expand-md fixed-top navbar-alien animate-fade-down">
-  <div class="container custom-container glass-nav rounded-pill px-4 py-2 mt-3">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="assets/img/svg/logo.svg" alt="Logo" height="30">
-    </a>
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-      </div>
-    </button>
+<body class="cs-body" style="--cs-accent: #004B49; ">"
 
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto gap-md-4">
-        <li class="nav-item">
-          <a class="nav-link" href="works.html">Works</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-      
-      <div class="d-none d-md-block">
-        <a href="contact.html" class="btn btn-gradient btn-sm px-4">Let's talk</a>
-      </div>
-    </div>
-  </div>
-</nav>
-</header>
-<main class="project-detail-page pb-5 mb-5 framer-hidden">
-  <div class="container custom-container">
+  <!-- Barra di progresso scroll -->
+  <div class="cs-progress" aria-hidden="true"><span id="csProgressBar"></span></div>
 
-    <!-- Navigation -->
-    <nav class="pt-5 mt-5 mb-4" data-aos="fade-up">
-      <a href="works.html" class="back-link">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="rotate-arrow">
-          <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        All works
-      </a>
-    </nav>
+  <!-- Pulsante di chiusura fisso -->
+  <a href="/#works" class="cs-close" aria-label="Close case study and go back to works">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
 
-    <!-- 1. Hero Section -->
-    <header class="mb-5" data-aos="fade-up">
-      <div class="badge-custom d-inline-block mb-3">Ecodream Website Redesign</div>
-      <h1 class="display-3 fw-bold text-white mb-4 tracking-tight">Redesigning a Sustainable Fashion Experience</h1>
-      <p class="lead fs-body-custom" style="max-width: 850px;">
-        A complete UX/UI redesign of Ecodream, an Italian sustainable fashion brand that transforms discarded materials into handcrafted bags and backpacks. The project focused on improving usability, accessibility, product discovery, and conversion while preserving the brand's values of sustainability, craftsmanship, and slow fashion.
-      </p>
-    </header>
+  <main class="cs-page">
+    <article class="cs-sheet">
 
-    <!-- Hero Image & CTAs -->
-    <div class="hero-project-image mb-4" data-aos="zoom-in" data-aos-delay="200">
-      <div class="glass-image-container aspect-16-9">
-        <img src="assets/img/png/ecodream-hero.png" alt="Ecodream final redesign mockup" class="project-img">
-      </div>
-    </div>
-    <div class="d-flex flex-wrap gap-3 pb-5 mb-5 border-bottom border-white border-opacity-10" data-aos="fade-up">
-      <a href="https://www.figma.com/proto/PIZMsljuzPKAnV3bLwmDiW/Ecodream-Design-di-Jessica-Donnicola?node-id=1624-24071&p=f&viewport=578%2C393%2C0.17&t=sKvYUTxbGDscYSHr-1&scaling=scale-down&content-scaling=fixed&page-id=1624%3A24070" class="btn btn-gradient px-4 py-3 rounded-pill fw-bold d-inline-flex align-items-center gap-2" target="_blank" rel="noopener noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        View Prototype
-      </a>
-      <a href="https://drive.google.com/file/d/1u_aoa_ghn01t1Ds-1NAIWRwpcEachfQs/view?usp=sharing" class="btn btn-outline px-4 py-3 rounded-pill fw-bold d-inline-flex align-items-center gap-2" target="_blank" rel="noopener noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Complete Project File
-      </a>
-    </div>
-
-    <!-- 2. About the Brand -->
-    <section class="mb-5 py-3" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-5">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">About the Brand</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Giving Materials a Second Life</h2>
-          <div class="project-description fs-body-custom">
-            <p>Ecodream creates handcrafted bags and backpacks using reclaimed leather, fabrics, and recycled materials.</p>
-            <p>The brand promotes a more conscious approach to fashion through:</p>
-            <ul class="text-white-50 mt-3 mb-0" style="line-height: 1.8;">
-              <li>Sustainable production</li>
-              <li>Slow fashion principles</li>
-              <li>Italian craftsmanship</li>
-              <li>Cruelty-free alternatives</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-7">
-          <div class="glass-image-container aspect-16-9">
-            <!-- SOSTITUISCI NOME FILE SE NECESSARIO -->
-            <img src="assets/img/png/ecodream-about.png" alt="Ecodream product photography and brand imagery" class="project-img">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. The Challenge -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-7 order-2 order-md-1">
-          <div class="glass-image-container aspect-16-9">
-            <!-- SOSTITUISCI NOME FILE SE NECESSARIO -->
-            <img src="assets/img/png/ecodream-challenge.png" alt="As-Is analysis highlights" class="project-img">
-          </div>
-        </div>
-        <div class="col-md-5 order-1 order-md-2">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">The Challenge</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Understanding the Current Experience</h2>
-          <div class="project-description fs-body-custom">
-            <p>An extensive discovery phase revealed several usability and accessibility issues affecting navigation and the shopping experience. Key challenges included:</p>
-            <ul class="text-white-50 mt-3 mb-0" style="line-height: 1.8;">
-              <li>Difficult product discovery</li>
-              <li>Lack of filters and wishlist</li>
-              <li>Weak visual hierarchy</li>
-              <li>Limited accessibility</li>
-              <li>Low trust and support elements</li>
-              <li>Inconsistent UI patterns</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 & 5. Research, Discovery & Insights -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="text-center mx-auto mb-5" style="max-width: 800px;">
-        <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Research & Discovery</span>
-        <h2 class="h3 fw-bold text-white mt-2 mb-4">Building a User-Centered Foundation</h2>
-        <p class="fs-body-custom mb-4">
-          The goal was to understand user expectations, identify friction points, and uncover opportunities for improvement. The research phase combined <strong>Heuristic Evaluation</strong>, an <strong>Accessibility Audit</strong>, <strong>Competitive Analysis</strong>, and user-focused methods like <strong>Surveys, Personas, and Journey Mapping</strong>.
+      <!-- ============ HERO ============ -->
+      <header class="cs-section cs-hero" data-aos="fade-up">
+        <span class="cs-eyebrow">Ecodream · Website Redesign · UX/UI Case Study</span>
+        <h1 class="cs-title">Redesigning a sustainable experience</h1>
+        <p class="cs-lead">
+          A complete UX/UI redesign of Ecodream, an Italian sustainable fashion brand that transforms
+          discarded materials into handcrafted bags and backpacks. The project focused on improving
+          usability, accessibility, product discovery, and conversion — while preserving the brand's
+          values of sustainability, craftsmanship, and slow fashion.
         </p>
-      </div>
 
-      <!-- Research Image -->
-      <div class="glass-image-container aspect-21-9 mb-5 mx-auto">
-        <!-- SOSTITUISCI NOME FILE SE NECESSARIO -->
-        <img src="assets/img/png/ecodream-research-board.png" alt="Research board, affinity map and personas" class="project-img">
-      </div>
+        <!-- <div class="cs-figure cs-figure-hero" data-aos="zoom-in" data-aos-delay="150">
+          <img src="assets/img/png/ecodream-hero.png" alt="Ecodream final redesign mockup — desktop and mobile">
+        </div> -->
+        <div class="cs-hero-switcher" data-aos="zoom-in" data-aos-delay="150">
+  
+  <div class="cs-switch-tabs" role="tablist" aria-label="Scegli il device">
+    <button class="cs-switch-btn active" role="tab" aria-selected="true" aria-controls="panel-desktop" id="tab-desktop">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Desktop Experience
+    </button>
+    <button class="cs-switch-btn" role="tab" aria-selected="false" aria-controls="panel-mobile" id="tab-mobile">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      Mobile App
+    </button>
+  </div>
 
-      <!-- Insights Cards -->
-      <h3 class="h4 fw-bold text-white text-center mb-4">Key Insights</h3>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
-            <div class="badge-custom mb-3">01. Product Discovery</div>
-            <p class="fs-small-custom text-white-50 mb-0">Users struggled to browse and compare products efficiently due to the lack of filtering and clear categorization.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
-            <div class="badge-custom mb-3">02. Clarity & Conversion</div>
-            <p class="fs-small-custom text-white-50 mb-0">Important actions and product customization options lacked visibility, increasing cognitive load during checkout.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
-            <div class="badge-custom mb-3">03. Trust & Retention</div>
-            <p class="fs-small-custom text-white-50 mb-0">The website lacked reviews, clear FAQs, support features, and retention mechanisms like a wishlist.</p>
-          </div>
-        </div>
+  <div class="cs-switch-panels">
+    
+    <div class="cs-switch-panel active" id="panel-desktop" role="tabpanel" aria-labelledby="tab-desktop">
+      <div class="cs-figure cs-frame-desktop">
+        <video autoplay loop muted playsinline poster="assets/img/png/ecodream-hero-desktop.png">
+          <source src="assets/img/video/ecodream-desktop-demo.mp4" type="video/mp4">
+          Il tuo browser non supporta i video.
+        </video>
       </div>
-    </section>
+    </div>
 
-    <!-- 6. Information Architecture -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-4">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Information Architecture</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Reorganizing the Experience</h2>
-          <div class="project-description fs-body-custom">
-            <p>Based on research findings, the sitemap was completely restructured to improve:</p>
-            <ul class="text-white-50 mt-3 mb-0" style="line-height: 1.8;">
-              <li>Navigation clarity</li>
-              <li>Product discoverability</li>
-              <li>User orientation</li>
-              <li>Overall flow efficiency</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/ecodream-sitemap.png" alt="Old vs New Sitemap comparison" class="project-img">
-          </div>
+    <div class="cs-switch-panel" id="panel-mobile" role="tabpanel" aria-labelledby="tab-mobile" hidden>
+      <div class="cs-frame-mobile-wrapper">
+         <div class="cs-figure cs-frame-desktop">
+          <video autoplay loop muted playsinline poster="assets/img/png/ecodream-hero-mobile.png">
+            <source src="assets/img/video/ecodream-mobile-demo.mp4" type="video/mp4">
+            Il tuo browser non supporta i video.
+          </video>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 7. Wireframing -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-7 order-2 order-md-1">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/ecodream-wire.png" alt="Wireframes showcasing desktop and mobile journeys" class="project-img">
+  </div>
+</div>
+
+        <div class="cs-cta-row" data-aos="fade-up">
+  <a href="https://drive.google.com/file/d/1u_aoa_ghn01t1Ds-1NAIWRwpcEachfQs/view?usp=sharing"
+     class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Read full document
+  </a>
+
+  <a href="#research" class="cs-btn-anchor">
+    Explore case study
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </a>
+</div> 
+      </header>
+
+      <!-- ============ PROJECT INFO ============ -->
+      <section class="cs-section cs-info" data-aos="fade-up" id="research">
+        <div class="cs-info-grid">
+          <div class="cs-info-item">
+            <span class="cs-info-label">My role</span>
+            <p>UX/UI Designer — research, wireframing, UI design, usability testing.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Duration</span>
+            <p>6 weeks, from discovery to validated high-fidelity prototype.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Platforms</span>
+            <p>Responsive redesign — desktop and mobile of the existing e-commerce website.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Deliverables</span>
+            <p>UX research, sitemap, wireframes, UI kit, hi-fi prototype, usability test report.</p>
           </div>
         </div>
-        <div class="col-md-5 order-1 order-md-2">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Wireframing</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Designing Better User Flows</h2>
-          <div class="project-description fs-body-custom">
-            <p>The main user journeys were redesigned across both desktop and mobile platforms, focusing on simplifying navigation and reducing friction during the purchase journey.</p>
-            <p class="text-white-50 mt-3 mb-0">Key screens included:</p>
-            <div class="d-flex flex-wrap gap-2 mt-2">
-              <span class="tool-tag opacity-75">Homepage</span>
-              <span class="tool-tag opacity-75">Product Listing Page</span>
-              <span class="tool-tag opacity-75">Product Detail Page</span>
-              <span class="tool-tag opacity-75">Login & Registration</span>
-              <span class="tool-tag opacity-75">My Account</span>
-              <span class="tool-tag opacity-75">Cart & Checkout</span>
+
+        <!-- Process -->
+        <ol class="cs-process">
+          <li><span>01</span>Research</li>
+          <li><span>02</span>Define</li>
+          <li><span>03</span>Architecture</li>
+          <li><span>04</span>Wireframes</li>
+          <li><span>05</span>UI Design</li>
+          <li><span>06</span>Testing</li>
+        </ol>
+      </section>
+
+      <!-- ============ 01 · THE CURRENT SITE ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>01</b> The current site</span>
+        <h2 class="cs-h2">Where the experience was breaking down</h2>
+        <p class="cs-body-text">
+          Ecodream creates handcrafted bags and backpacks using reclaimed leather, fabrics and recycled
+          materials. The brand's values are strong — but the website wasn't communicating them. An
+          extensive discovery phase (heuristic evaluation + accessibility audit) revealed several issues
+          affecting navigation and the shopping experience.
+        </p>
+
+        <div class="cs-figure" data-aos="fade-up">
+          <img src="assets/img/png/ecodream-challenge.png" alt="Screenshots of the current Ecodream website with annotated issues">
+        </div>
+
+        <ul class="cs-problem-list">
+          <li><span>1</span><div><strong>Difficult product discovery</strong> — no filters, weak categorization, hard to browse and compare products.</div></li>
+          <li><span>2</span><div><strong>Weak visual hierarchy</strong> — key actions and content competed for attention, increasing cognitive load.</div></li>
+          <li><span>3</span><div><strong>Limited accessibility</strong> — contrast, focus states and semantics below WCAG expectations.</div></li>
+          <li><span>4</span><div><strong>Low trust signals</strong> — no reviews, unclear FAQs, poor support and no retention features like a wishlist.</div></li>
+          <li><span>5</span><div><strong>Inconsistent UI patterns</strong> — components behaved differently across pages, breaking user expectations.</div></li>
+        </ul>
+      </section>
+
+      <!-- ============ 02 · RESEARCH ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>02</b> Research &amp; discovery</span>
+        <h2 class="cs-h2">Building a user-centered foundation</h2>
+        <p class="cs-body-text">
+          The research phase combined <strong>heuristic evaluation</strong>, an <strong>accessibility
+          audit</strong>, <strong>competitive analysis</strong>, and user-focused methods like
+          <strong>surveys, personas and journey mapping</strong> — to understand expectations,
+          identify friction points and uncover opportunities.
+        </p>
+
+        <div class="cs-figure" data-aos="fade-up">
+          <img src="assets/img/png/ecodream-research-board.png" alt="Research board with affinity map, personas and journey map">
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="cs-insight">
+              <span class="cs-insight-num">Insight 01</span>
+              <h3>Product discovery</h3>
+              <p>Users struggled to browse and compare products efficiently due to the lack of filtering and clear categorization.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="cs-insight">
+              <span class="cs-insight-num">Insight 02</span>
+              <h3>Clarity &amp; conversion</h3>
+              <p>Important actions and customization options lacked visibility, increasing cognitive load during checkout.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="cs-insight">
+              <span class="cs-insight-num">Insight 03</span>
+              <h3>Trust &amp; retention</h3>
+              <p>The website lacked reviews, clear FAQs, support features, and retention mechanisms like a wishlist.</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 8. UI Design -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-5">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">UI Design</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">A Visual System Inspired by Nature</h2>
-          <div class="project-description fs-body-custom">
-            <p>The interface was redesigned using a visual language aligned with Ecodream's core values of sustainability and craftsmanship.</p>
-            
-            <h5 class="text-white mt-4 mb-2 fs-body-custom fw-bold">Design Principles</h5>
-            <p class="text-white-50">Simplicity • Clarity • Accessibility • Sustainability</p>
-            
-            <h5 class="text-white mt-4 mb-2 fs-body-custom fw-bold">Visual Elements</h5>
-            <ul class="text-white-50 mt-2 mb-0" style="line-height: 1.8;">
-              <li>Earth-inspired color palette</li>
-              <li>Responsive grid system</li>
-              <li>Clear visual hierarchy</li>
-              <li>Consistent components</li>
-            </ul>
+
+      <!-- ============ 03 · WIREFRAMES ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>03</b> Wireframes</span>
+        <h2 class="cs-h2">Designing better user flows</h2>
+        <p class="cs-body-text">
+          The main user journeys were redesigned across <strong>desktop and mobile</strong>, simplifying
+          navigation and reducing friction along the purchase journey. Key screens: homepage, product
+          listing, product detail, login &amp; registration, my account, cart &amp; checkout.
+        </p>
+        <div class="cs-figure" data-aos="fade-up">
+          <img src="assets/img/png/ecodream-wire.png" alt="Wireframes of the main desktop and mobile journeys">
+        </div>
+      </section>
+
+      <!-- ============ DESIGN GUIDELINES (banda scura, full-bleed nel foglio) ============ -->
+      <section class="cs-band" data-aos="fade-up">
+        <div class="cs-band-inner">
+          <span class="cs-eyebrow cs-eyebrow-light"><b>04</b> Design guidelines</span>
+          <h2 class="cs-h2">A visual system inspired by craftsmanship</h2>
+          <p class="cs-body-text">
+            The interface was rebuilt on a visual language aligned with Ecodream's values:
+            warmth, authenticity, timeless quality & sustainability.
+          </p>
+
+          <div class="row g-4 mt-2">
+            <div class="col-lg-7">
+              <h3 class="cs-band-label">Color palette</h3>
+              <!-- Sostituisci gli hex con quelli reali della tua palette Ecodream -->
+              <div class="cs-palette">
+                <div class="cs-swatch" style="--sw:#004B49;"><span>Evergreen</span><em>#004B49</em></div>
+                <div class="cs-swatch" style="--sw:#9A5E49;"><span>Clay</span><em>#9A5E49</em></div>
+                <div class="cs-swatch" style="--sw:#301C23;"><span>Leather</span><em>#301C23</em></div>
+                <div class="cs-swatch" style="--sw:#EAE0D6;"><span>Ivory</span><em>#EAE0D6</em></div>
+                <!-- <div class="cs-swatch" style="--sw:#22261f;"><span>Bark</span><em>#22261F</em></div> -->
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <h3 class="cs-band-label">Typography</h3>
+              <div class="cs-type-specimen">
+                <p class="cs-type-display">Aa — Raleway</p>
+                <p class="cs-type-body">Open Sans — regular, for long-form reading and product descriptions across all breakpoints.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-7">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/ecodream-ui.png" alt="UI Design showcase" class="project-img">
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 9 & 10. Usability Testing & Outcome -->
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="text-center mx-auto mb-5" style="max-width: 800px;">
-        <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Testing & Outcome</span>
-        <h2 class="h3 fw-bold text-white mt-2 mb-4">Validating the Experience</h2>
-        <p class="fs-body-custom mb-4">
-          A moderated remote usability test was conducted with participants matching Ecodream's target audience. The study focused on navigation intuitiveness, information architecture, first-click accuracy, and visual clarity. The results confirmed strong overall usability while identifying minor refinement opportunities.
+      <!-- ============ 06 · UI DESIGN ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>05</b> UI design</span>
+        <h2 class="cs-h2">The redesigned experience</h2>
+        <p class="cs-body-text">
+          High-fidelity screens across desktop and mobile: an earth-inspired palette, a responsive grid
+          system, clear hierarchy and consistent components.
         </p>
-        <p class="fs-body-custom fw-bold text-white">
-          The redesign transformed Ecodream's digital experience into a more intuitive, accessible, and conversion-oriented platform while staying true to the brand's sustainable mission.
-        </p>
-      </div>
-      
-      <!-- Final Desktop/Mockup Collage -->
-      <div class="glass-image-container aspect-21-9 mx-auto" style="max-width: 1000px;">
-        <img src="assets/img/png/ecodream-desktop.png" alt="Final screens collage" class="project-img">
-      </div>
-    </section>
-
-    <!-- 11. Final CTA -->
-    <section class="mb-5 text-center py-5 rounded-4" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);" data-aos="fade-up">
-      <h2 class="h3 fw-bold text-white mb-3">Explore the Full Case Study</h2>
-      <p class="fs-body-custom text-white-50 mb-4 mx-auto" style="max-width: 600px;">
-        Discover the complete UX process, from deep research and strategy to wireframes, UI design, and usability testing results.
-      </p>
-      <a href="https://drive.google.com/file/d/1u_aoa_ghn01t1Ds-1NAIWRwpcEachfQs/view?usp=sharing" class="btn btn-gradient px-4 py-3 rounded-pill fw-bold d-inline-flex align-items-center gap-2" target="_blank" rel="noopener noreferrer">
-        Read Full Case Study
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </section>
-
-    <!-- Footer Next Project Link -->
-    <footer class="next-project-section border-top border-white border-opacity-10 pt-5 mt-5" data-aos="fade-up">
-      <p class="small text-uppercase tracking-widest text-white-50 mb-4">Next Project</p>
-      <a href="project-buddhify.html" class="next-project-link d-flex justify-content-between align-items-center group text-decoration-none">
-        <h2 class="display-5 fw-bold text-white transition-smooth">Buddhify - Mindfulness App</h2>
-        <div class="arrow-circle">
-          <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
-            <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div class="cs-figure" data-aos="fade-up">
+          <img src="assets/img/png/ecodream-ui.png" alt="High-fidelity UI screens, desktop and mobile">
         </div>
-      </a>
-    </footer>
+      </section>
 
-  </div>
-</main>
-<footer class="footer-section py-5 relative">
-  <div class="container custom-container">
-    <div class="line-gradient mb-5"></div>
 
-    <div class="footer-content d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
-      
-      <div class="footer-left d-flex align-items-center gap-3">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/img/svg/logo.svg" alt="Logo" height="20">
-        </a>
-        <span class="footer-copy">© 2026 — DESIGNED & CODED WITH ♡ BY ME</span>
-      </div>
+      <!-- ============ 08 · TESTING & OUTCOME ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>06</b> Testing &amp; outcome</span>
+        <h2 class="cs-h2">Validating the experience</h2>
+        <p class="cs-body-text">
+          A moderated remote usability test was conducted with participants matching Ecodream's target
+          audience, focusing on navigation intuitiveness, information architecture, first-click accuracy
+          and visual clarity. The results confirmed strong overall usability and surfaced minor
+          refinement opportunities.
+        </p>
+        <p class="cs-outcome">
+          The redesign transformed Ecodream's digital experience into a more intuitive, accessible and
+          conversion-oriented platform — while staying true to the brand's sustainable mission.
+        </p>
+        <div class="cs-figure" data-aos="fade-up">
+          <img src="assets/img/png/ecodream-desktop.png" alt="Final screens collage — overall view">
+        </div>
+      </section>
 
-           <div class="footer-right d-flex align-items-center gap-4">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=donnicolajessica@gmail.com" class="footer-link" target="_blank" 
-          rel="noopener noreferrer">Email</a>
-        <a href="https://www.linkedin.com/in/jessica-donnicola-a59453378"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link d-flex align-items-center gap-2">
-          LinkedIn
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </a>
-      </div>
+      <!-- ============ THANKS + NEXT ============ -->
+      <footer class="cs-section cs-end">
+        <p class="cs-thanks" data-aos="fade-up">Thanks for watching</p>
 
-    </div>
-  </div>
-</footer>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JS -->
+        <div class="cs-end-actions" data-aos="fade-up">
+          <a href="https://drive.google.com/file/d/1u_aoa_ghn01t1Ds-1NAIWRwpcEachfQs/view?usp=sharing"
+             class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">Read the full case study</a>
+        </div>
 
-<script src="assets/js/script.js"></script>
+        <a href="/#works" class="cs-back-all">← Back to all works</a>
+      </footer>
 
+    </article>
+  </main>
+
+  <!-- AOS -->
+  <script src="assets/js/cs-script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+    // Barra di progresso scroll
+    const bar = document.getElementById('csProgressBar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.transform = `scaleX(${scrolled})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ESC per chiudere il case study
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.location.href = '/#works';
+    });
+  </script>
 </body>
+
 </html>

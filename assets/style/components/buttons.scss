@@ -1,5 +1,22 @@
-// _buttons.scss
+// _buttons.scss — v2 NEUTRALE
+// Filosofia: i bottoni non hanno un colore proprio. Usano var(--fg)/var(--bg),
+// quindi si invertono DA SOLI col tema attivo: bianchi su sezioni scure,
+// neri (ink) su sezioni chiare/coral. Sempre leggibili, zero manutenzione.
+// RIMOSSI: gradient corallo-rosa, secondary rosata.
+// .btn-gradient resta come ALIAS di .btn-solid: l'HTML esistente non si rompe.
+
 @use '../variables/variables' as *;
+
+@mixin btn-solid-style {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--fg) 45%, transparent);
+  }
+}
 
 .btn {
   display: inline-flex;
@@ -7,21 +24,30 @@
   justify-content: center;
   gap: 0.5rem;
   white-space: nowrap;
-  border-radius: 0.5rem; // rounded-md
-  font-size: 0.9375rem;     // text-sm
-  font-weight: 500;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 999px;              // pillola di default, coerente con la cornice
+  font-family: $font-display;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform var(--dur-ui) var(--ease-smooth),
+              background-color var(--dur-ui) var(--ease-smooth),
+              color var(--dur-ui) var(--ease-smooth),
+              border-color var(--dur-ui) var(--ease-smooth),
+              box-shadow var(--dur-ui) var(--ease-smooth);
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   text-decoration: none;
   outline: none;
 
-  
+  &:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
   @media (max-width: 768px) {
     width: 100%;
-    display: flex; 
+    display: flex;
   }
-  
+
   &:disabled {
     pointer-events: none;
     opacity: 0.5;
@@ -34,77 +60,87 @@
     flex-shrink: 0;
   }
 
-  
-  &-default {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    &:hover { background-color: hsla(var(--primary), 0.9); }
+  // ── VARIANTI ──
+
+  // Pieno: fg su bg → si inverte col tema
+  &-solid {
+    @include btn-solid-style;
   }
 
-  &-destructive {
-    background-color: hsl(var(--destructive));
-    color: hsl(var(--destructive-foreground));
-    &:hover { background-color: hsla(var(--destructive), 0.9); }
+  // DEPRECATO: alias del solid, mantiene vivo l'HTML esistente
+  &-gradient {
+    @include btn-solid-style;
   }
 
-  &-outline {
-    border: 1px solid hsl(var(--foreground));
-    background-color: transparent;
-    border-radius: 9999px;
-    color: hsl(var(--foreground));
+  // Inverso: bg su bg, bordo sottile (per stare sopra superfici piene)
+  &-inverse {
+    background: var(--bg);
+    color: var(--fg);
+    border-color: color-mix(in srgb, var(--fg) 15%, transparent);
+
     &:hover {
-      background-color: hsl(var(--primary-foreground));
-      color: hsl(var(--primary));
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--fg) 40%, transparent);
     }
-      
   }
 
-  &-secondary {
-    background-color: hsl(var(--secondary));
-    border-radius: 9999px;
-    color: hsl(var(--secondary-foreground));
-    &:hover { background-color: hsla(var(--secondary), 0.8); }
+  // Outline: trasparente, si riempie all'hover
+  &-outline {
+    background: transparent;
+    color: var(--fg);
+    border-color: color-mix(in srgb, var(--fg) 30%, transparent);
+
+    &:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
   }
 
   &-ghost {
-    background-color: transparent;
-    color: hsl(var(--foreground));
+    background: transparent;
+    color: var(--fg);
+
     &:hover {
-      background-color: hsl(var(--accent));
-      color: hsl(var(--accent-foreground));
+      background: color-mix(in srgb, var(--fg) 8%, transparent);
     }
   }
 
   &-link {
-    background-color: transparent;
-    color: hsl(var(--primary));
+    background: transparent;
+    color: var(--accent);
+    border-radius: 0;
     text-underline-offset: 4px;
-    &:hover { text-decoration: underline; }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  
-  &-gradient {
-    @include bg-gradient-coral;
-    border-radius: 9999px; 
-    &:hover { box-shadow: var(--glow-coral); }
+  &-destructive {
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
-  // --- SIZES 
-  
-  &-base { 
-    height: 2.75rem; // h-10
-    padding: 0.5rem 1.5rem; // px-4 py-2
+  // ── SIZES (invariate) ──
+
+  &-base {
+    height: 2.75rem;
+    padding: 0.5rem 1.5rem;
   }
 
   &-sm {
-    height: 2.5rem; // h-9
-    padding: 0 1rem; // px-3
+    height: 2.5rem;
+    padding: 0 1rem;
     font-size: 0.875rem;
   }
 
   &-lg {
-    height: 3.25rem; // h-11
-    padding: 0 2.5rem; // px-8
+    height: 3.25rem;
+    padding: 0 2.5rem;
     font-size: 1.0625rem;
   }
 

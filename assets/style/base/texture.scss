@@ -1,0 +1,70 @@
+// _texture.scss — M3 "Concrete Press"
+// Atmosfera persistente su TUTTA la pagina (non solo Hero):
+// grana statica + rumore animato + un orb ambientale che insegue il cursore.
+// Non intercetta mai il puntatore. Rispetta prefers-reduced-motion.
+
+@use '../variables/variables' as *;
+
+.global-texture {
+  position: fixed;
+  inset: 0;
+  z-index: 1500; // sopra header/footer (1000), sotto il cursor-orb (9999)
+  pointer-events: none;
+
+  // grana statica, sempre presente — molto sottile (era troppo invadente su sfondo scuro)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  // rumore animato, appena percettibile — rallentato per evitare lo sfarfallio fastidioso
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    opacity: 0.012;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: globalNoiseShift 2.4s steps(4) infinite;
+  }
+}
+
+@keyframes globalNoiseShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-3%, 2%); }
+  50%  { transform: translate(2%, -2%); }
+  75%  { transform: translate(-2%, -3%); }
+  100% { transform: translate(3%, 2%); }
+}
+
+// Luce ambientale che segue il mouse in sottofondo (dietro a tutti i contenuti).
+// Diversa dal .hero-glow: quella è locale all'hero, questa vive su tutta la pagina.
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  &__orb {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60vw;
+    height: 60vw;
+    margin: -30vw 0 0 -30vw;
+    border-radius: 50%;
+    opacity: 0.22;
+    filter: blur(120px);
+    will-change: transform;
+    background: radial-gradient(circle at center, var(--accent), transparent 65%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .global-texture::after { animation: none; }
+}

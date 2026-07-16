@@ -1,0 +1,186 @@
+:root {
+  --bg: #100D09;
+  --fg: #E9E4DA;
+  --accent: #F46622;
+  --surface: #1E1A15;
+  --coral: #F46622;
+  --coral-soft: #C33E00;
+  --ink: #18130E;
+  --paper: #EDE9E1;
+  --concrete: #D8D4CA;
+  --signal: #E74F00;
+  --signal-deep: #AE3100;
+  --hairline: rgba(24, 19, 14, 0.18);
+  --card: #F6F3EC;
+  --muted-fg: #5A544E;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-reveal: 0.9s;
+  --dur-ui: 0.35s;
+  --frame-h: 88px;
+  --frame-pad: 3rem;
+}
+@media (max-width: 767px) {
+  :root {
+    --frame-h: 60px;
+    --frame-pad: 1.25rem;
+  }
+}
+:root {
+  --background: 232 12% 13%;
+  --foreground: 0 0% 95%;
+  --primary: 12 100% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 353 100% 75%;
+  --secondary-foreground: 232 12% 13%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --accent-legacy: 353 100% 75%;
+  --border: 0 0% 95% / 0.08;
+  --input: 0 0% 95% / 0.08;
+  --ring: 12 100% 64%;
+  --glow-coral: 0 0 40px hsl(12 100% 64% / 0.15);
+  --glow-coral-strong: 0 0 60px hsl(12 100% 64% / 0.25);
+}
+
+section[data-theme=paper],
+footer[data-theme=paper] {
+  --bg: #EDE9E1;
+  --fg: #18130E;
+  --accent: #E74F00;
+  --surface: #F6F3EC;
+  --hairline: rgba(24, 19, 14, 0.18);
+  --concrete: #D8D4CA;
+  --muted-fg: #5A544E;
+  --ink: #18130E;
+  --paper: #EDE9E1;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+section[data-theme=ink] {
+  --bg: #100D09;
+  --fg: #E9E4DA;
+  --accent: #F46622;
+  --surface: #1E1A15;
+  --hairline: rgba(233, 228, 218, 0.16);
+  --concrete: #2D2823;
+  --muted-fg: #9C9890;
+  --ink: #100D09;
+  --paper: #E9E4DA;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+section[data-theme=light],
+section[data-theme=coral] {
+  color: var(--fg);
+}
+section[data-theme=light] h1, section[data-theme=light] h2, section[data-theme=light] h3, section[data-theme=light] h4, section[data-theme=light] h5, section[data-theme=light] h6,
+section[data-theme=light] .section-title,
+section[data-theme=light] .node-title,
+section[data-theme=light] .about-lead,
+section[data-theme=light] .about-lead strong,
+section[data-theme=light] .about-body strong,
+section[data-theme=coral] h1,
+section[data-theme=coral] h2,
+section[data-theme=coral] h3,
+section[data-theme=coral] h4,
+section[data-theme=coral] h5,
+section[data-theme=coral] h6,
+section[data-theme=coral] .section-title,
+section[data-theme=coral] .node-title,
+section[data-theme=coral] .about-lead,
+section[data-theme=coral] .about-lead strong,
+section[data-theme=coral] .about-body strong {
+  color: var(--fg);
+}
+section[data-theme=light] p,
+section[data-theme=light] .about-body,
+section[data-theme=light] .about-greeting,
+section[data-theme=light] .node-desc,
+section[data-theme=light] .work-desc,
+section[data-theme=light] .form-label,
+section[data-theme=coral] p,
+section[data-theme=coral] .about-body,
+section[data-theme=coral] .about-greeting,
+section[data-theme=coral] .node-desc,
+section[data-theme=coral] .work-desc,
+section[data-theme=coral] .form-label {
+  color: color-mix(in srgb, var(--fg) 70%, transparent);
+}
+section[data-theme=light] .about-aside,
+section[data-theme=coral] .about-aside {
+  color: color-mix(in srgb, var(--fg) 55%, transparent);
+  border-left-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+section[data-theme=light] .overline-text,
+section[data-theme=coral] .overline-text {
+  color: var(--accent);
+}
+section[data-theme=light] .glass,
+section[data-theme=coral] .glass {
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  border-color: color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+section[data-theme=coral] .contact-form-wrapper {
+  background: #FFFFFF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: transparent;
+  box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+section[data-theme=light] .node-info-card,
+section[data-theme=light] .node-dot,
+section[data-theme=coral] .node-info-card,
+section[data-theme=coral] .node-dot {
+  background: var(--bg);
+}
+section[data-theme=light] .skill-tags span,
+section[data-theme=light] .skill-category-title,
+section[data-theme=coral] .skill-tags span,
+section[data-theme=coral] .skill-category-title {
+  color: color-mix(in srgb, var(--fg) 60%, transparent);
+  border-color: color-mix(in srgb, var(--fg) 15%, transparent);
+}
+section[data-theme=light] .custom-input,
+section[data-theme=coral] .custom-input {
+  background: color-mix(in srgb, var(--fg) 4%, transparent);
+  border-color: color-mix(in srgb, var(--fg) 12%, transparent);
+  color: var(--fg);
+}
+section[data-theme=light] .custom-input::-moz-placeholder, section[data-theme=coral] .custom-input::-moz-placeholder {
+  color: color-mix(in srgb, var(--fg) 35%, transparent);
+}
+section[data-theme=light] .custom-input::placeholder,
+section[data-theme=coral] .custom-input::placeholder {
+  color: color-mix(in srgb, var(--fg) 35%, transparent);
+}
+section[data-theme=light] .custom-input:focus,
+section[data-theme=coral] .custom-input:focus {
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+section[data-theme=light] .reason-tag,
+section[data-theme=coral] .reason-tag {
+  color: color-mix(in srgb, var(--fg) 55%, transparent);
+  border-color: color-mix(in srgb, var(--fg) 15%, transparent);
+}
+section[data-theme=light] .reason-tag:hover,
+section[data-theme=coral] .reason-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+section[data-theme=light] .btn-check:checked + .reason-tag,
+section[data-theme=coral] .btn-check:checked + .reason-tag {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: transparent;
+}
+
+section[data-theme=coral] {
+  --accent-fallback: var(--ink);
+}/*# sourceMappingURL=themes.css.map */

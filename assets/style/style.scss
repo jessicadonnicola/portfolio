@@ -1,12 +1,18 @@
+// style.scss — M1
+// Ordine importante: variabili → reset → base → layout → componenti → pagine → SHIMS (ultimi)
+
 @use 'variables/variables' as var;
+@use 'base/reset';
 @use 'base/typography';
-@use 'components/footer';
-@use 'components/navbar';
+@use 'base/texture';
+@use 'layout/frame';
+@use 'components/footer';   // legacy: si elimina quando la cornice sostituisce ovunque
+@use 'components/navbar';   // legacy: si elimina in M3 col menu fullscreen
 @use 'pages/home';
 @use 'pages/about';
 @use 'pages/works';
 @use 'pages/contacts';
 @use 'components/buttons';
+@use 'components/cursor';
 @use 'case-study/case-study';
-
-
+@use 'base/themes';         // ← SEMPRE ULTIMO: shim di compatibilità temi

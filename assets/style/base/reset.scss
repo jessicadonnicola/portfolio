@@ -1,0 +1,85 @@
+// _reset.scss — M1
+// Sostituisce il reset `* {}` e il blocco `body` che erano in home.scss
+
+@use '../variables/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  // I salti dal menu non nascondono mai il titolo sotto la cornice
+  scroll-padding-top: calc(var(--frame-h) + 1rem);
+}
+
+body {
+  background-color: var(--bg);   // ← animato dal theme engine
+  color: var(--fg);
+  font-family: $font-main;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Anti-flash per il reveal system: i contenuti animati partono nascosti
+// SOLO se il JS è attivo (html.js). Senza JS resta tutto visibile.
+html.js [data-reveal],
+html.js [data-reveal-group] > * {
+  opacity: 0;
+}
+
+// Anti-flash per l'Hero: il messaggio e i filetti editoriali partono
+// nascosti solo se il JS prende il controllo (altrimenti restano visibili).
+html.js .hero-message [data-hero-reveal],
+html.js .hero-graphic {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal],
+  html.js [data-reveal-group] > * {
+    opacity: 1;
+  }
+
+  html.js .hero-message [data-hero-reveal],
+  html.js .hero-graphic {
+    opacity: 1;
+  }
+}

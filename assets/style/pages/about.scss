@@ -1,201 +1,363 @@
-// _about.scss
 @use '../variables/variables' as *;
 
-// ─── BIO CARD & IMMAGINE ───
-.photo-placeholder {
-  width: 100%;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  align-self: flex-start;
-  background: linear-gradient(135deg, hsla(var(--primary), 0.15), hsla(var(--primary), 0.02));
-  border: 1px solid hsla(0, 0%, 95%, 0.06);
-  color: hsla(0, 0%, 95%, 0.2);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+// ─── ABOUT: layout editoriale asimmetrico (identico a Lovable) ───
+.about-editorial {
+  background-color: var(--bg);
+  color: var(--fg);
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-}
-
-.cv-picture {
-  border-radius: 1.5rem;
-}
-
-.quote-box {
-  border-left: 2px solid hsla(var(--primary), 0.5);
-  padding-left: 1.25rem;
-  font-size: 0.95rem;
-  color: hsla(0, 0%, 95%, 0.6);
-  font-style: italic;
-}
-
-// ─── BIO TEXT HIERARCHY ───
-
-.about-greeting {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: hsl(var(--foreground) / 0.5);
-  margin-bottom: 1rem;
-  letter-spacing: 0.01em;
-}
-
-.about-lead {
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.75;
-  color: hsl(var(--foreground) / 0.95);
-  margin-bottom: 1.25rem;
-
-  strong {
-    font-weight: 700;
-    color: hsl(var(--foreground));
-  }
-}
-
-.about-body {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.8;
-  color: hsl(var(--foreground) / 0.7);
-  margin-bottom: 1rem;
-
-  strong {
-    font-weight: 600;
-    color: hsl(var(--foreground) / 0.9);
-  }
-}
-
-.about-aside {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: hsl(var(--foreground) / 0.45);
-  border-left: 2px solid hsl(var(--primary) / 0.4);
-  padding-left: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
-  font-style: italic;
-}
-
-// ─── TIMELINE ───
-.path-wrapper {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 0;
-  overflow: visible;
-
-  .path-line-base {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: hsl(var(--border));
-    transform: translateX(-50%);
-    z-index: 1;
-  }
-
-  .path-node {
-    position: relative;
+  .about-marker {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
-    z-index: 3;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: clamp(3rem, 8vh, 6rem);
 
-    .node-dot {
-      width: 14px;
-      height: 14px;
-      background: hsl(var(--background));
-      border: 2px solid hsl(var(--primary));
-      border-radius: 50%;
-      position: relative;
-      z-index: 10;
-      margin-bottom: 20px;
-      box-shadow: var(--glow-coral);
+    .about-marker-sub {
+      font-family: $font-display;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: color-mix(in srgb, var(--fg) 45%, transparent);
 
-      &::after {
-        content: '';
-        position: absolute;
-        inset: 1px;
-        border-radius: 50%;
-        background: hsl(var(--primary));
-        opacity: 0;
-        animation: node-flare 5s infinite;
-        animation-delay: var(--delay);
-        filter: blur(10px);
+      @media (max-width: 767px) {
+        display: none;
       }
     }
+  }
 
-    .node-info-card {
-      position: relative;
-      padding: 10px 25px;
-      background-color: hsl(var(--background));
-      border-radius: 12px;
-      transition: $transition-smooth;
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(4rem, 10vh, 8rem);
+    align-items: start;
+
+    @media (min-width: 900px) {
+      grid-template-columns: 5fr 6fr;
+      gap: clamp(3rem, 6vw, 6rem);
     }
+  }
 
-    .node-date {
+  .about-portrait-col {
+    position: relative;
+  }
+
+  .about-portrait-frame {
+    position: relative;
+    transform: rotate(-2.5deg);
+  }
+
+  .about-portrait-clip {
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+
+    img {
       display: block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: hsl(var(--primary));
-      margin-bottom: 0.5rem;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+  }
+
+  .about-badge {
+    position: absolute;
+    font-family: $font-display;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.5rem 0.9rem;
+
+    &--top {
+      top: -1rem;
+      right: -0.75rem;
+      transform: rotate(2.5deg);
+      background: var(--accent);
+      color: var(--paper);
+      box-shadow: 0 10px 24px -8px color-mix(in srgb, var(--accent) 45%, transparent);
     }
 
-    .node-title {
-      font-size: 1.5rem;
+    &--bottom {
+      bottom: -1.25rem;
+      left: 1.25rem;
+      transform: rotate(-3deg);
+      background: var(--fg);
+      color: var(--bg);
+    }
+  }
+
+  .about-numeral {
+    position: absolute;
+    left: -1.5rem;
+    top: -6rem;
+    z-index: -1;
+    font-family: $font-title;
+    font-weight: 800;
+    font-size: 14rem;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--fg) 25%, transparent);
+    opacity: 0.4;
+    pointer-events: none;
+
+    @media (max-width: 899px) {
+      display: none;
+    }
+  }
+
+  .about-heading {
+    max-width: 16ch;
+    font-family: $font-title;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+
+    em {
+      font-style: italic;
+      font-family: $font-accent;
+      font-weight: 500;
+      color: var(--accent);
+    }
+  }
+
+  .about-lead {
+    margin-top: 2rem;
+    max-width: 48ch;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--fg) 70%, transparent);
+  }
+
+  .about-quote {
+    margin-top: 1.5rem;
+    max-width: 42ch;
+    font-family: $font-accent;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--fg) 55%, transparent);
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 3rem;
+    max-width: 42ch;
+
+    .tag-chip:nth-child(3n) { transform: rotate(-1.5deg); }
+    .tag-chip:nth-child(3n+1) { transform: rotate(1.5deg); color: var(--accent); }
+    .tag-chip:nth-child(3n+2) { transform: rotate(-0.5deg); }
+  }
+}
+
+// ── STILE POPUP MODALE CONTATTI ──
+// Nota: unica fonte di verità per .custom-input (la versione in contacts.scss
+// era codice morto — .custom-input viene usata solo qui, dentro la modale —
+// e veniva comunque sovrascritta da questa per specificità).
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    align-items: flex-end; // su mobile la modale sale dal basso: più naturale col pollice
+  }
+
+  &.is-active {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+
+    .modal-content {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 8, 6, 0.75);
+    backdrop-filter: blur(12px);
+  }
+
+  .modal-content {
+    position: relative;
+    z-index: 10000;
+    width: 100%;
+    max-width: 30rem; // stesso ingombro del Dialog Lovable (sm:max-w-lg)
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2.75rem;
+    background: var(--bg);
+    border: 1px solid color-mix(in srgb, var(--fg) 14%, transparent); // border-hairline, niente vetro
+    border-radius: 4px; // quasi squadrato, coerente col resto del design editoriale
+    transform: translateY(20px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    // ── RESPONSIVE: la modale si adatta davvero, non solo si restringe ──
+    @media (max-width: 600px) {
+      width: 100%;
+      max-width: none;
+      max-height: 85vh;
+      padding: 2rem 1.5rem 1.75rem;
+      border-radius: 4px 4px 0 0; // sheet dal basso, coerente con align-items: flex-end
+    }
+
+    /* Titolo — stesso trattamento di Lovable: display black + accento corsivo */
+    .modal-title {
+      font-family: $font-title;
       font-weight: 800;
-      color: hsl(var(--foreground));
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2.5rem;
+
+      em {
+        margin-left: 0.45rem;
+        font-style: italic;
+        font-family: $font-accent;
+        font-weight: 500;
+        color: var(--accent);
+      }
+
+      @media (max-width: 600px) {
+        font-size: 1.65rem;
+        margin-bottom: 1.5rem;
+      }
     }
 
-    .node-desc {
-      font-size: 0.95rem;
-      color: hsl(var(--foreground) / 0.6);
-      margin: 0;
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem; // Spazio uniforme tra i campi
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .form-label {
+        font-family: $font-display;
+        font-size: 0.72rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--accent);
+      }
+
+      .btn-accent {
+        margin-top: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        width: 100%;
+        background: var(--fg);
+        color: var(--bg);
+        border: none;
+        border-radius: 2px; // quasi squadrato, come il bottone "Send it →" di Lovable
+        padding: 1.1rem 1.5rem;
+        font-family: $font-display;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          background: var(--accent);
+          color: var(--paper);
+          transform: translateY(-2px);
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          transform: none;
+        }
+
+        @media (max-width: 600px) {
+          padding: 1rem;
+          margin-top: 0.5rem;
+        }
+      }
     }
 
-    &:hover {
-      .node-info-card {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    // FOOTER INFO
+    .modal-footer-info {
+      margin-top: 3rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      color: color-mix(in srgb, var(--fg) 65%, transparent);
+      font-size: 0.85rem;
+
+      a {
+        color: inherit;
+        transition: color 0.3s;
+        &:hover { color: var(--accent); }
+      }
+
+      @media (max-width: 600px) {
+        margin-top: 2.25rem;
+        padding-top: 1.5rem;
+        gap: 0.75rem 1.5rem;
       }
     }
   }
-}
 
-// ─── SKILLS ───
-.skill-category-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: hsla(0, 0%, 95%, 0.5);
-  border-bottom: 1px solid hsla(0, 0%, 95%, 0.08);
-  padding-bottom: 0.5rem;
-}
-
-// ─── ANIMATIONS ───
-@keyframes scan-travel {
-  0%   { top: 0%;   opacity: 0; }
-  5%   { opacity: 1; }
-  95%  { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-@keyframes node-flare {
-  0%, 20%, 50%, 100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  25% {
+  .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--fg);
     opacity: 0.6;
-    transform: translate(-50%, -50%) scale(2);
-    box-shadow: var(--glow-coral-strong);
+    transition: opacity 0.3s, transform 0.3s;
+    &:hover { opacity: 1; transform: scale(1.1); }
+
+    @media (max-width: 600px) {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  // Input editoriali: nessuna scatola, solo una linea — come in Lovable
+  .custom-input {
+    width: 100%;
+    background: transparent;
+    color: var(--fg);
+    border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 22%, transparent);
+    border-radius: 0;
+    padding: 0.55rem 0.05rem;
+    font-family: $font-main;
+    font-size: 1.1rem; // >=16px: evita lo zoom automatico di Safari iOS al focus
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--fg) 35%, transparent);
+    }
+
+    &:focus {
+      border-color: var(--accent);
+      box-shadow: none;
+    }
+
+    @media (max-width: 600px) {
+      padding: 0.5rem 0;
+    }
   }
 }

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jessica Donnicola">
-    <meta property="og:title" content="Ecodream Project by Jessica Donnicola | UX/UI Redesign">
-    <meta property="og:description" content="I carried out a redesign of the Ecodream website, following the full UX/UI process—from research and discovery to wireframing, UI design, prototyping, and user testing.">
-    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/ecodream-hero.png">
-    <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-ecodream.html">
+    <meta property="og:title" content="Muuto Project by Jessica Donnicola | UX/UI Redesign">
+    <meta property="og:description" content="I carried out a redesign of the Muuto website, following the full UX/UI process—from research and discovery to wireframing, UI design, prototyping, and user testing.">
+    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/muuto-preview.png">
+    <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-muuto.html">
     <meta property="og:type" content="website">
      <link rel="icon" type="image/svg+xml" href="assets/img/svg/favicon.svg">
-    <title>Case Study - UX/UI Design</title>
+    <title>Jessica Donnicola — Creative UX/UI & Web Design</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -20,196 +20,342 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
-<body>
-  <header>
-<nav class="navbar navbar-expand-md fixed-top navbar-alien animate-fade-down">
-  <div class="container custom-container glass-nav rounded-pill px-4 py-2 mt-3">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="assets/img/svg/logo.svg" alt="Logo" height="30">
-    </a>
+<body class="cs-body" style="--cs-accent: #845831;">
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-      </div>
+  <!-- Barra di progresso scroll -->
+  <div class="cs-progress" aria-hidden="true"><span id="csProgressBar"></span></div>
+
+  <!-- Pulsante di chiusura fisso -->
+  <a href="/#works" class="cs-close" aria-label="Close case study and go back to works">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
+
+  <main class="cs-page">
+    <article class="cs-sheet">
+
+      <!-- ============ HERO ============ -->
+      <header class="cs-section cs-hero" data-aos="fade-up">
+        <span class="cs-eyebrow">Muuto · Brand Identity · UX/UI Redesign</span>
+        <h1 class="cs-title">A new perspective for Muuto</h1>
+        <p class="cs-lead">
+          A brand identity and website redesign for Muuto, focused on strengthening brand
+          recognition, improving the digital experience across desktop and mobile, and creating a
+          more cohesive visual system — while preserving the brand's Scandinavian heritage.
+        </p>
+
+         <div class="cs-hero-switcher" data-aos="zoom-in" data-aos-delay="150">
+  
+  <div class="cs-switch-tabs" role="tablist" aria-label="Scegli il device">
+    <button class="cs-switch-btn active" role="tab" aria-selected="true" aria-controls="panel-desktop" id="tab-desktop">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Desktop Experience
     </button>
-
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto gap-md-4">
-        <li class="nav-item">
-          <a class="nav-link" href="works.html">Works</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-      
-      <div class="d-none d-md-block">
-        <a href="contact.html" class="btn btn-gradient btn-sm px-4">Let's talk</a>
-      </div>
-    </div>
+    <button class="cs-switch-btn" role="tab" aria-selected="false" aria-controls="panel-mobile" id="tab-mobile">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      Mobile App
+    </button>
   </div>
-</nav>
-</header>
-<main class="project-detail-page pb-5 mb-5 framer-hidden">
-  <div class="container custom-container">
 
-    <nav class="pt-5 mt-5 mb-4" data-aos="fade-up">
-      <a href="works.html" class="back-link">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="rotate-arrow">
-          <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        All works
-      </a>
-    </nav>
-
-    <header class="mb-5" data-aos="fade-up">
-      <div class="badge-custom d-inline-block mb-3">Brand Identity & UX/UI Redesign Preview</div>
-      <h1 class="display-3 fw-bold text-white mb-4 tracking-tight">Muuto Website Redesign</h1>
-      <p class="lead fs-body-custom" style="max-width: 850px;">
-        A redesign concept for Muuto focused on strengthening brand recognition, improving the digital experience, and creating a more cohesive visual system while preserving the brand's Scandinavian heritage.
-      </p>
-    </header>
-
-    <div class="hero-project-image mb-5" data-aos="zoom-in" data-aos-delay="200">
-      <div class="glass-image-container aspect-16-9">
-        <img src="assets/img/png/muuto-hero.png" alt="Muuto new logo applied on website device" class="project-img">
+  <div class="cs-switch-panels">
+    
+    <div class="cs-switch-panel active" id="panel-desktop" role="tabpanel" aria-labelledby="tab-desktop">
+      <div class="cs-figure cs-frame-desktop">
+        <video autoplay loop muted playsinline poster="assets/img/png/muuto-hero-desktop.png">
+          <source src="assets/img/video/muuto-desktop-demo.mp4" type="video/mp4">
+          Il tuo browser non supporta i video.
+        </video>
       </div>
     </div>
 
-    <section class="mb-5" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <!-- <div class="col-md-5"> -->
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">About the Brand</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Muuto Heritage</h2>
-          <div class="project-description fs-body-custom">
-            <p>Muuto is a contemporary furniture and interior design brand rooted in Scandinavian tradition. Its core mission is to bring new perspectives to Nordic design through simplicity, craftsmanship, and constant innovation.</p>
-          </div>
-      </div>
-    </section>
+    <div class="cs-switch-panel" id="panel-mobile" role="tabpanel" aria-labelledby="tab-mobile" hidden>
+         <div class="cs-figure cs-frame-desktop">
+          <video autoplay loop muted playsinline poster="assets/img/png/muuto-hero-mobile.png">
+            <source src="assets/img/video/muuto-mobile-demo.mp4" type="video/mp4">
+            Il tuo browser non supporta i video.
+          </video>
+        </div>
+    </div>
 
-    <section class="mb-5 py-5 border-top border-bottom border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-7 order-2 order-md-1">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/muuto-mockup.png" alt="Current logo comparison and friction observations" class="project-img">
+  </div>
+</div>
+
+        <div class="cs-cta-row" data-aos="fade-up">
+  <a href="https://drive.google.com/file/d/1OUfHUnamljKGKuvoN5S28xoyViFvXyId/view?usp=sharing"
+     class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Read full document
+  </a>
+
+  <a href="#research" class="cs-btn-anchor">
+    Explore case study
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </a>
+</div> 
+      </header>
+
+      <!-- ============ PROJECT INFO ============ -->
+      <section class="cs-section cs-info" data-aos="fade-up" id="research">
+        <div class="cs-info-grid">
+          <div class="cs-info-item">
+            <span class="cs-info-label">My role</span>
+            <!-- AGGIORNA: ruolo effettivo -->
+            <p>Brand &amp; UX/UI Designer — identity design, research, IA, wireframing, UI design, usability testing.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Duration</span>
+            <!-- AGGIORNA: durata effettiva -->
+            <p>6 weeks</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Platforms</span>
+            <p>Full redesign of the existing website — desktop and mobile — plus a new brand identity.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Deliverables</span>
+            <p>New brand identity, UX research, wireframes, UI kit, hi-fi prototype, usability test report.</p>
           </div>
         </div>
-        <div class="col-md-5 order-1 order-md-2">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">The Challenge</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">New Perspectives</h2>
-          <div class="project-description fs-body-custom">
-            <p>While Muuto enjoys a strong visual presence, its current digital branding lacks distinctiveness and does not fully express the concept behind its name, which is derived from the Finnish word <em>muutos</em> ("new perspective").</p>
-            <p>The core challenge was to construct a more recognizable visual identity while maintaining the premium, ultra-minimalist character of the brand.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="mb-5" data-aos="fade-up">
-      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-        <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">New Logo Concept</span>
-        <h2 class="h3 fw-bold text-white mt-2 mb-3">Modular Brand Mark</h2>
-        <p class="fs-body-custom">
-          The redesigned identity introduces a modular symbol built entirely from the letter "M". The mark reflects one of Muuto's core values: the ability to combine, customize, and build products in flexible ways. Inspired by shelving systems, the symbol functions both as an initial and a standalone asset.
+    
+      </section>
+
+      <!-- ============ 01 · THE BRAND ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>01</b> The brand</span>
+        <h2 class="cs-h2">Rooted in Scandinavian tradition</h2>
+        <p class="cs-body-text">
+          Muuto is a contemporary furniture and interior design brand rooted in Scandinavian
+          tradition. Its core mission is to bring new perspectives to Nordic design through
+          simplicity, craftsmanship and constant innovation — the name itself comes from the
+          Finnish word <em>muutos</em>, "new perspective".
         </p>
-      </div>
-
-      <div class="glass-image-container aspect-16-9 mb-4">
-        <img src="assets/img/png/muuto-concept.png" alt="Large visual of the new Muuto logo concept" class="project-img">
-      </div>
-      
-      <div class="glass-image-container aspect-16-9 mb-4">
-        <img src="assets/img/png/muuto-concept-2.png" alt="Large visual of the new Muuto logo concept" class="project-img">
-      </div>
-    </section>
-
-    <section class="mb-5 text-center py-5 rounded-4 position-relative overflow-hidden" 
-             style="background: linear-gradient(135deg, hsla(12, 100%, 64%, 0.02), hsla(14, 100%, 78%, 0.05)); border: 1px solid hsla(12, 100%, 64%, 0.15);" 
-             data-aos="fade-up">
-      
-      <div class="position-absolute start-50 top-50 translate-middle pointer-events-none" 
-           style="width: 300px; height: 300px; background: hsl(12 100% 64% / 0.08); filter: blur(80px); border-radius: 50%;">
-      </div>
-
-      <div class="container position-relative z-1 px-4" style="max-width: 750px;">
-        <span class="badge-custom d-inline-block mb-3" style="border-color: hsla(12, 100%, 64%, 0.3); color: hsl(var(--primary));">What's Next</span>
-        <h2 class="display-5 fw-bold text-white mb-3">Case Study in Progress</h2>
-        <p class="fs-body-custom mb-4 mx-auto" style="max-width: 600px;">
-          The complete digital redesign is currently under active development. The full case study will be available soon and will cover the entire UX/UI framework:
+        <p class="cs-body-text">
+          While Muuto enjoys a strong visual presence, its current digital branding lacks
+          distinctiveness and doesn't fully express the concept behind its name. The core challenge:
+          <strong>build a more recognizable identity while maintaining the premium, ultra-minimalist
+          character of the brand</strong>.
         </p>
-
-        <div class="d-flex flex-wrap justify-content-center gap-2 mb-5" style="max-width: 550px; margin: 0 auto;">
-          <span class="tool-tag opacity-75">1. Discovery & Research</span>
-          <span class="tool-tag opacity-75">2. Information Architecture</span>
-          <span class="tool-tag opacity-75">3. Wireframes</span>
-          <span class="tool-tag opacity-75">4. Interactive Prototypes</span>
-          <span class="tool-tag opacity-75">5. UI Design</span>
-          <span class="tool-tag opacity-75">6. Usability Testing</span>
+        <div>
+          <img src="assets/img/png/muuto-mob-mock.png" alt="Current Muuto branding and friction observations">
         </div>
+      </section>
 
-        <div class="glass-image-container aspect-16-9 mx-auto mb-5" style="max-width: 550px; filter: blur(2px); opacity: 0.4;">
-          <img src="assets/img/png/muuto-wireframes.png" alt="Blurred teaser preview of upcoming wireframes" class="project-img">
-        </div>
-
-        <div class="border-top border-white border-opacity-10 pt-4 mt-2">
-          <h3 class="h2 fw-bold text-white tracking-wide mb-2" style="letter-spacing: 2px;">COMING SOON</h3>
-          <p class="fs-small-custom text-white-50">The full UX/UI case study will be published here shortly.</p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="next-project-section border-top border-white border-opacity-10 pt-5 mt-5" data-aos="fade-up">
-      <p class="small text-uppercase tracking-widest text-white-50 mb-4">Next Project</p>
-      <a href="project-ecodream.html" class="next-project-link d-flex justify-content-between align-items-center group text-decoration-none">
-        <h2 class="display-5 fw-bold text-white transition-smooth">Ecodream - UX/UI Design</h2>
-        <div class="arrow-circle">
-          <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
-            <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-      </a>
-    </footer>
-
+      <section class="cs-section" data-aos="fade-up" data-cs-switcher>
+  <span class="cs-eyebrow"><b>02</b> Brand Redesign</span> <br>
+  
+  <div class="cs-switch-tabs mb-5" role="tablist">
+    <button class="cs-switch-btn active" role="tab" aria-selected="true" aria-controls="logo-new">The New Identity</button>
+    <button class="cs-switch-btn" role="tab" aria-selected="false" aria-controls="logo-old">Legacy Logo</button>
   </div>
-</main>
-<footer class="footer-section py-5 relative">
-  <div class="container custom-container">
-    <div class="line-gradient mb-5"></div>
 
-    <div class="footer-content d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
-      
-      <div class="footer-left d-flex align-items-center gap-3">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/img/svg/logo.svg" alt="Logo" height="20">
-        </a>
-        <span class="footer-copy">© 2026 — DESIGNED & CODED WITH ♡ BY ME</span>
-      </div>
-
-           <div class="footer-right d-flex align-items-center gap-4">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=donnicolajessica@gmail.com" class="footer-link" target="_blank" 
-          rel="noopener noreferrer">Email</a>
-        <a href="https://www.linkedin.com/in/jessica-donnicola-a59453378"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link d-flex align-items-center gap-2">
-          LinkedIn
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </a>
-      </div>
-
+  <div id="logo-new" class="cs-switch-panel active" role="tabpanel">
+    <h2 class="cs-h2">A modular brand mark</h2>
+   <p class="cs-body-text">
+      The new identity introduces a symbol based on the letter <strong>"M"</strong>. By rotating and simplifying its shape, the symbol reflects Muuto's approach to creating products that can be combined and adapted to different needs.
+    </p>
+    <div>
+      <img src="assets/img/png/muuto-concept-logo.png" alt="New modular logo">
     </div>
   </div>
-</footer>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JS -->
 
-<script src="assets/js/script.js"></script>
+  <div id="logo-old" class="cs-switch-panel" role="tabpanel" hidden>
+    <h2 class="cs-h2">Current Logo</h2>
 
+    <div class="cs-body-text" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2.5rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <strong>Strengths:</strong>
+        <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li style="margin-bottom: 0.25rem;">Modern and easy to read.</li>
+          <li>Strong visual consistency.</li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 250px;">
+        <strong>Weaknesses:</strong>
+        <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li style="margin-bottom: 0.25rem;">Not very distinctive.</li>
+          <li>No standalone symbol for small formats.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <img src="assets/img/png/muuto-original-logo.png" alt="Old logo" style="max-width: 400px; margin: 4rem auto;">
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" data-aos="fade-up">
+  <span class="cs-eyebrow"><b>03</b> The current site</span>
+  <h2 class="cs-h2">Where the experience was breaking down</h2>
+  <p class="cs-body-text">
+  The discovery phase revealed several issues affecting usability, accessibility, navigation, and the overall user experience.
+</p>
+  
+  <div class="cs-research-marquee-container">
+    <div class="cs-research-marquee-track">
+      <img src="assets/img/png/muuto-as-is.png" alt="Research board and as-is analysis" class="cs-research-marquee-img">
+      <img src="assets/img/png/muuto-as-is.png" alt="Research board and as-is analysis" class="cs-research-marquee-img">
+    </div>
+  </div>
+
+  
+<div class="cs-body-text" style="margin-bottom: 2rem;">
+  <ul style="padding-left: 1.25rem;">
+    <li style="margin-bottom: 0.75rem;">
+      <strong>Visual inconsistency:</strong> Irregular layouts, spacing, and color usage reduce clarity.
+    </li>
+    <li style="margin-bottom: 0.75rem;">
+      <strong>Confusing navigation:</strong> Low contrast, missing breadcrumbs, and small mobile touch targets make navigation harder.
+    </li>
+    <li style="margin-bottom: 0.75rem;">
+      <strong>Accessibility issues:</strong> Missing alt text, poor keyboard navigation, and unlabeled buttons limit inclusivity.
+    </li>
+    <li>
+      <strong>Unclear user experience:</strong> Mixed user needs, unclear product discovery, and missing support features create friction.
+    </li>
+  </ul>
+</div>
+</section>
+
+      <!-- ============ DESIGN GUIDELINES (banda scura) ============ -->
+      <section class="cs-band" data-aos="fade-up">
+        <div class="cs-band-inner">
+          <span class="cs-eyebrow cs-eyebrow-light"><b>05</b> Design guidelines</span>
+          <h2 class="cs-h2">Visual System</h2>
+
+          <div class="row g-4 mt-2">
+            <div class="col-lg-7">
+              <h3 class="cs-band-label">Color palette</h3>
+              <!-- AGGIORNA: hex e nomi reali della palette Muuto redesign -->
+              <div class="cs-palette">
+                <div class="cs-swatch" style="--sw:#47382B;"><span>Walnut Brown</span><em>#47382B</em></div>
+                <div class="cs-swatch" style="--sw:#D5C0A6;"><span>Sand Beige</span><em>#D5C0A6</em></div>
+                <div class="cs-swatch" style="--sw:#845831;"><span>Caramel Wood</span><em>#845831</em></div>
+                <div class="cs-swatch" style="--sw:#23221E;"><span>Charcoal Black</span><em>#23221E</em></div>
+                <div class="cs-swatch" style="--sw:#F5F5F5;"><span>Porcelain White</span><em>#F5F5F5</em></div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <h3 class="cs-band-label">Typography</h3>
+              <div class="cs-type-specimen">
+                <!-- AGGIORNA: font reali del redesign -->
+                <p class="cs-type-display-muuto">Aa — Arial</p>
+                <p class="cs-type-body-muuto">Inter — regular, for product descriptions and long-form reading across all breakpoints.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section class="cs-section" data-aos="fade-up">
+  <span class="cs-eyebrow"><b>06</b> The Redesign</span>
+  <h2 class="cs-h2">Creating a more intuitive experience</h2>
+
+  <div class="cs-switch-tabs mb-4" role="tablist" aria-label="Scegli il device UI">
+    <button class="cs-switch-btn active" role="tab" aria-selected="true" aria-controls="ui-panel-desktop" id="ui-tab-desktop">
+      Desktop UI
+    </button>
+    <button class="cs-switch-btn" role="tab" aria-selected="false" aria-controls="ui-panel-mobile" id="ui-tab-mobile">
+      Mobile UI
+    </button>
+  </div>
+
+  <div class="cs-switch-panels">
+    
+    <div class="cs-switch-panel active" id="ui-panel-desktop" role="tabpanel" aria-labelledby="ui-tab-desktop">
+      <div class="cs-ui-marquee-container -desktop">
+        <div class="cs-ui-marquee-track">
+          <img src="assets/img/png/muuto-desk-frames.png" alt="High-fidelity Desktop Screens" class="cs-ui-marquee-img">
+          <img src="assets/img/png/muuto-desk-frames.png" alt="High-fidelity Desktop Screens" class="cs-ui-marquee-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-switch-panel" id="ui-panel-mobile" role="tabpanel" aria-labelledby="ui-tab-mobile" hidden>
+      <div class="cs-ui-marquee-container -mobile">
+        <div class="cs-ui-marquee-track">
+          <img src="assets/img/png/muuto-mob-ui.png" alt="High-fidelity Mobile Screens" class="cs-ui-marquee-img">
+          <img src="assets/img/png/muuto-mob-ui.png" alt="High-fidelity Mobile Screens" class="cs-ui-marquee-img">
+        </div>
+      </div>
+    </div>
+
+  </div>
+<br><br>
+  <div class="cs-body-text" style="margin-bottom: 2rem;">
+  <strong>Key improvements:</strong>
+  <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+    <li style="margin-bottom: 0.5rem;">Clearer navigation and information architecture.</li>
+    <li style="margin-bottom: 0.5rem;">More consistent and accessible interface.</li>
+    <li style="margin-bottom: 0.5rem;">Better product discovery with wishlist support.</li>
+    <li>AI-assisted store locator for a smoother retail journey.</li>
+  </ul>
+</div>
+</section>
+
+      <!-- ============ 09 · TESTING & OUTCOME ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>09</b> Testing &amp; outcome</span>
+        <h2 class="cs-h2">Usability Testing</h2>
+       <p class="cs-body-text">
+         The redesigned experience was validated through moderated usability testing to identify friction points and gather qualitative feedback.
+       </p>
+        <div class="cs-body-text" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2.5rem;">
+  <!-- Colonna Risultati -->
+  <div>
+    <strong>Key Findings & Iterations:</strong>
+    <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+      <li style="margin-bottom: 0.5rem;">
+        <strong>Product availability:</strong> Added contextual stock status to reduce user uncertainty before checkout.
+      </li>
+      <li style="margin-bottom: 0.5rem;">
+        <strong>AI Integration:</strong> Embedded an AI assistant directly on the Product Page to answer specific item-related questions.
+      </li>
+      <li>
+        <strong>AI Onboarding:</strong> Improved the chat interface with clearer prompts and suggested queries to guide first-time users.
+      </li>
+    </ul>
+  </div>
+</div>
+        <div class="cs-figure" data-aos="fade-up">
+          <!-- AGGIUNGI: collage finale / overall view -->
+          <img src="assets/img/png/muuto-mob-mock3.png" alt="High-fidelity UI screens, desktop and mobile">
+        </div>
+        <br><br>
+
+      </section>
+
+      <!-- ============ THANKS + NEXT ============ -->
+      <footer class="cs-section cs-end">
+        <p class="cs-thanks" data-aos="fade-up">Thanks for watching</p>
+
+        <a href="/#works" class="cs-back-all">← Back to all works</a>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- AOS -->
+     <script src="assets/js/cs-script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+    // Barra di progresso scroll
+    const bar = document.getElementById('csProgressBar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.transform = `scaleX(${scrolled})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ESC per chiudere il case study
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.location.href = '/#works';
+    });
+  </script>
 </body>
 </html>

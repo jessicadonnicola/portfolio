@@ -1,97 +1,188 @@
-// _header.scss
 @use '../variables/variables' as *;
 
-// _navbar.scss
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 900; // Sotto l'header/footer (che devono avere z-index: 1000)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ink);
+  color: var(--paper);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 
-.navbar-alien {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1050;
-
-  .glass-nav {
-    background: hsla(230, 16%, 17%, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid hsla(0, 0%, 95%, 0.08);
-    transition: all 0.4s ease;
-    // max-width: 900px; 
-    margin: 0 auto;
+  // Stessa texture della Hero per coerenza
+  &.noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
   }
 
-  // Quando l'utente scrolla (aggiungeremo la classe via JS)
-  &.scrolled {
-    .glass-nav {
-      background: hsla(230, 16%, 17%, 0.8);
-      border-color: hsla(var(--primary), 0.2);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-      transform: scale(0.98);
-    }
-  }
-
-  .nav-link {
-    color: hsla(0, 0%, 95%, 0.6);
-    font-size: 0.875rem;
-    font-weight: 500;
+  .menu-inner {
     position: relative;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, hsl(12 100% 64%), hsl(14 100% 78%));
-      transition: width 0.3s ease;
-    }
-
-    &:hover, &.active {
-      color: hsl(var(--foreground));
-      &::after { width: 100%; }
-    }
-  }
-
-  // Hamburger personalizzato (come in Lovable)
-  .hamburger {
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--frame-pad);
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    span {
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      background-color: hsl(var(--foreground));
-      transition: 0.3s;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: calc(var(--frame-h) + 2rem);
+    padding-bottom: calc(var(--frame-h) + 2rem);
+  }
+
+  .menu-links {
+    list-style: none;
+    padding: 0;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    li {
+      overflow: hidden; // Per l'animazione GSAP del testo che sale dal basso
     }
   }
 
-  // Stato quando il menu mobile è aperto
-  .navbar-toggler[aria-expanded="true"] {
-    .hamburger span:first-child { transform: rotate(45deg) translateY(4.5px); }
-    .hamburger span:last-child { transform: rotate(-45deg) translateY(-4.5px); }
+  .menu-item {
+    font-family: $font-title;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: color-mix(in srgb, var(--paper) 40%, transparent);
+    transition: color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+    display: inline-block;
+
+    &:hover {
+      color: var(--coral);
+      transform: translateX(20px);
+    }
+  }
+
+  .menu-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0; // Animato da GSAP
+  }
+
+  .menu-social {
+    display: flex;
+    gap: 2rem;
+    font-family: $font-main;
+    font-size: 0.875rem;
+    
+    a {
+      transition: color 0.3s ease;
+      &:hover {
+        color: var(--coral);
+      }
+    }
   }
 }
 
-// Mobile Adjustments
-@media (max-width: 767.98px) {
-  .navbar-alien {
-    .glass-nav {
-      border-radius: 20px !important; // Meno arrotondata su mobile se aperta
-      margin: 0 15px;
+// Quando il menu è aperto
+body.menu-is-open {
+  overflow: hidden;
+  
+  .fullscreen-menu {
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+
+
+// sound control
+
+.audio-toggle {
+  position: relative; /* Essenziale per contenere il tooltip assoluto sotto */
+  width: 44px;        /* Dimensione importante e visibile */
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--fg); /* Sfondo pieno come i tuoi bottoni solid */
+  color: var(--bg);           /* Le ondine prendono il colore invertito */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s var(--ease-smooth), opacity 0.2s ease;
+
+  // Interazione hover da vero link/bottone premium
+  &:hover {
+    transform: scale(1.08);
+    opacity: 0.9;
+
+    // Fa apparire la scritta sotto al passaggio del mouse
+    .audio-status-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
-    .navbar-collapse {
-      padding-top: 1rem;
+  }
+
+  // Dimensioni delle ondine dentro al cerchio
+  .sound-waves-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  // Origine fissa al centro esatto del viewBox (12px su 24px) per rendere l'animazione cross-browser
+  .audio-bar {
+    transform-origin: 12px 12px; 
+  }
+
+  // 1. QUANDO L'AUDIO SUONA: Movimento iper-fluido e continuo delle onde
+  &.is-playing {
+    .bar-1 { animation: soundWaveBounce 0.6s infinite ease-in-out alternate; }
+    .bar-2 { animation: soundWaveBounce 0.8s infinite ease-in-out alternate 0.15s; }
+    .bar-3 { animation: soundWaveBounce 0.5s infinite ease-in-out alternate 0.05s; }
+  }
+
+  // 2. QUANDO L'AUDIO È MUTO: Si bloccano all'istante e si appiattiscono orizzontalmente
+  &:not(.is-playing) {
+    .audio-bar {
+      animation: none !important;
+      transform: scaleY(0.2);
     }
   }
 }
 
-ul.mx-auto {
-  margin-left: auto !important;
-  margin-right: 3rem !important;
+// La scritta informativa: fluttua SOTTO al pulsante senza spostare gli elementi vicini
+.audio-status-tooltip {
+  position: absolute;
+  top: calc(100% + 10px); /* Posizionato stabilmente sotto al cerchio */
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px); /* Micro-spostamento dal basso verso l'alto */
+  font-family: $font-main;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: var(--fg);
+  color: var(--bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none; /* Impedisce sfarfallii se ci passi sopra col mouse */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.navbar-brand img {
-     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-     &:hover { transform: rotate(-5deg) scale(1.1); }
- }
+// L'animazione di oscillazione verticale nativa per i rettangoli
+@keyframes soundWaveBounce {
+  0% {
+    transform: scaleY(0.25);
+  }
+  100% {
+    transform: scaleY(1.15);
+  }
+}

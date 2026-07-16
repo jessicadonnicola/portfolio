@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jessica Donnicola">
     <meta property="og:title" content="AI Agents Project by Jessica Donnicola | UX/UI Designer">
     <meta property="og:description" content="Project focused on automating email management and appointment scheduling through an AI agent built with n8n.">
-    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/agentAI.png">
+    <meta property="og:image" content="https://jessicadonnicola.github.io/portfolio/assets/png/ai-agent-preview.png">
     <meta property="og:url" content="https://jessicadonnicola.github.io/portfolio/project-aiAgent.html">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="assets/img/svg/favicon.svg">
-    <title>Case Study - UX/UI Design</title>
+    <title>Jessica Donnicola — Creative UX/UI & Web Design</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -20,226 +20,216 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
-<body>
-  <header>
-<nav class="navbar navbar-expand-md fixed-top navbar-alien animate-fade-down">
-  <div class="container custom-container glass-nav rounded-pill px-4 py-2 mt-3">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="assets/img/svg/logo.svg" alt="Logo" height="30">
-    </a>
+<body class="cs-body" style="--cs-accent: #3b6ff0;">
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-      </div>
-    </button>
+  <!-- Barra di progresso scroll -->
+  <div class="cs-progress" aria-hidden="true"><span id="csProgressBar"></span></div>
 
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto gap-md-4">
-        <li class="nav-item">
-          <a class="nav-link" href="works.html">Works</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-      
-      <div class="d-none d-md-block">
-        <a href="contact.html" class="btn btn-gradient btn-sm px-4">Let's talk</a>
-      </div>
-    </div>
-  </div>
-</nav>
-</header>
-<main class="project-detail-page pb-5 mb-5 framer-hidden">
-  <div class="container custom-container">
+  <!-- Pulsante di chiusura fisso -->
+  <a href="/#works" class="cs-close" aria-label="Close case study and go back to works">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
 
-    <nav class="pt-5 mt-5 mb-4" data-aos="fade-up">
-      <a href="works.html" class="back-link">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="rotate-arrow">
-          <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        All works
-      </a>
-    </nav>
+  <main class="cs-page">
+    <article class="cs-sheet">
 
-    <header class="mb-5" data-aos="fade-up">
-      <div class="badge-custom d-inline-block mb-3">AI Automation & Workflow Design</div>
-      <h1 class="display-3 fw-bold text-white mb-4 tracking-tight">Automating Everyday Tasks with AI</h1>
-      <p class="lead fs-body-custom" style="max-width: 850px;">
-        An AI-powered workflow built with n8n that automates email management and appointment scheduling through natural language interactions. The assistant understands text and voice messages sent via Telegram and transforms them into real-world actions such as sending emails or creating calendar events.
-      </p>
-    </header>
+      <!-- ============ HERO ============ -->
+      <header class="cs-section cs-hero" data-aos="fade-up">
+        <span class="cs-eyebrow">AI Agent · Automation · Workflow Design</span>
+        <h1 class="cs-title">Automating everyday tasks with AI</h1>
+        <p class="cs-lead">
+          An AI-powered workflow built with n8n that automates email management and appointment
+          scheduling through natural language. The assistant understands text and voice messages
+          sent via Telegram and turns them into real-world actions — sending emails or creating
+          calendar events.
+        </p>
 
-    <div class="hero-project-image mb-5" data-aos="zoom-in" data-aos-delay="200">
-      <div class="glass-image-container aspect-16-9">
-        <img src="assets/img/png/agentAI.png" alt="Telegram to AI Agent to Gmail and Google Calendar workflow overview" class="project-img">
-      </div>
-    </div>
+        <div class="cs-figure cs-figure-hero" data-aos="zoom-in" data-aos-delay="150">
+          <img src="assets/img/png/agentAI.png" alt="Telegram → AI Agent → Gmail and Google Calendar workflow overview">
+        </div>
 
-    <section class="mb-5 py-4" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <!-- <div class="col-md-5"> -->
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Project Overview</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">The Goal</h2>
-          <div class="project-description fs-body-custom">
-            <p>The objective was to create a practical AI assistant capable of reducing repetitive administrative tasks and simplifying daily workflows.</p>
-            <p>Instead of manually managing emails and appointments across different apps, users can simply communicate with the assistant using natural language, significantly cutting down context-switching.</p>
+        <div class="cs-cta-row" data-aos="fade-up">
+          <a href="https://www.loom.com/share/be87439914b14baca491745513379092"
+             class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Watch demo video
+          </a>
+        </div>
+      </header>
+
+      <!-- ============ PROJECT INFO ============ -->
+      <section class="cs-section cs-info" data-aos="fade-up">
+        <div class="cs-info-grid">
+          <div class="cs-info-item">
+            <span class="cs-info-label">My role</span>
+            <p>Workflow design, AI agent configuration, prompt design, API integrations.</p>
           </div>
-        <!-- </div> -->
-        <!-- <div class="col-md-7">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/agent-user-flow.png" alt="Simple user flow diagram" class="project-img">
+          <div class="cs-info-item">
+            <span class="cs-info-label">Project type</span>
+            <p>Self-initiated automation project — a working AI assistant, not just a concept.</p>
           </div>
-        </div> -->
-      </div>
-    </section>
-
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-7 order-2 order-md-1">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/agent-n8n-workflow.png" alt="n8n workflow screenshot overview" class="project-img">
+          <div class="cs-info-item">
+            <span class="cs-info-label">Interface</span>
+            <p>Telegram chat — text and voice messages as the only input the user needs.</p>
+          </div>
+          <div class="cs-info-item">
+            <span class="cs-info-label">Deliverables</span>
+            <p>Production-ready n8n workflow, agent instructions, live demo video.</p>
           </div>
         </div>
-        <div class="col-md-5 order-1 order-md-2">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">How It Works</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">From Conversation to Action</h2>
-          <div class="project-description fs-body-custom">
-            <p>The system seamlessly combines AI, API integrations, and automation within a single orchestrator. The assistant can autonomously:</p>
-            <ul class="text-white-50 mt-3 mb-0" style="line-height: 1.8;">
-              <li>Understand text and voice requests</li>
-              <li>Retrieve specific contact information</li>
-              <li>Send emails automatically</li>
-              <li>Create and update Google Calendar events</li>
-              <li>Manage information through continuous conversational interactions</li>
+
+        <!-- Process -->
+        <ol class="cs-process">
+          <li><span>01</span>Goal</li>
+          <li><span>02</span>Workflow</li>
+          <li><span>03</span>Integrations</li>
+          <li><span>04</span>Agent design</li>
+          <li><span>05</span>Demo</li>
+        </ol>
+      </section>
+
+      <!-- ============ 01 · THE GOAL ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>01</b> The goal</span>
+        <h2 class="cs-h2">Less context-switching, fewer repetitive tasks</h2>
+        <p class="cs-body-text">
+          The objective was to create a practical AI assistant capable of reducing repetitive
+          administrative tasks and simplifying daily workflows.
+        </p>
+        <p class="cs-body-text">
+          Instead of manually managing emails and appointments across different apps, the user simply
+          talks to the assistant in natural language — <strong>one conversation replaces three or four
+          app switches</strong>.
+        </p>
+      </section>
+
+      <!-- ============ 02 · HOW IT WORKS ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>02</b> How it works</span>
+        <h2 class="cs-h2">From conversation to action</h2>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <p class="cs-body-text">
+              The system combines AI, API integrations and automation within a single orchestrator.
+              The assistant can autonomously:
+            </p>
+            <ul class="cs-problem-list">
+              <li><span>a</span><div><strong>Understand</strong> text and voice requests.</div></li>
+              <li><span>b</span><div><strong>Retrieve</strong> specific contact information.</div></li>
+              <li><span>c</span><div><strong>Send emails</strong> automatically via Gmail.</div></li>
+              <li><span>d</span><div><strong>Create and update</strong> Google Calendar events.</div></li>
+              <li><span>e</span><div><strong>Keep context</strong> across continuous conversational interactions.</div></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-5">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">Tech Stack</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Tools & Integrations</h2>
-          <div class="project-description fs-body-custom">
-            <p>The robust architecture connects several specialized services to guarantee fluid communication and reliable execution:</p>
-            <div class="d-flex flex-wrap gap-2 mt-4">
-              <span class="tool-tag opacity-75">n8n (Orchestration)</span>
-              <span class="tool-tag opacity-75">OpenAI (LLM / NLP)</span>
-              <span class="tool-tag opacity-75">Telegram (User Interface)</span>
-              <span class="tool-tag opacity-75">Airtable (Database)</span>
-              <span class="tool-tag opacity-75">Gmail (Email Automation)</span>
-              <span class="tool-tag opacity-75">Google Calendar (Scheduling)</span>
+          <div class="col-md-6">
+            <div class="cs-figure">
+              <img src="assets/img/png/agent-n8n-workflow.png" alt="n8n workflow overview">
             </div>
           </div>
         </div>
-        <div class="col-md-7">
-          <div class="glass-image-container aspect-16-9">
-            <img src="assets/img/png/agent-architecture.png" alt="Architecture diagram of integrated tools" class="project-img">
+      </section>
+
+      <!-- ============ 03 · TECH STACK ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>03</b> Tech stack</span>
+        <h2 class="cs-h2">Tools &amp; integrations</h2>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5">
+            <p class="cs-body-text">
+              The architecture connects several specialized services to guarantee fluid communication
+              and reliable execution:
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="cs-tag">n8n · Orchestration</span>
+              <span class="cs-tag">OpenAI · LLM / NLP</span>
+              <span class="cs-tag">Telegram · User interface</span>
+              <span class="cs-tag">Airtable · Database</span>
+              <span class="cs-tag">Gmail · Email automation</span>
+              <span class="cs-tag">Google Calendar · Scheduling</span>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="cs-figure">
+              <img src="assets/img/png/agent-architecture.png" alt="Architecture diagram of integrated tools">
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="mb-5 py-5 border-top border-white border-opacity-10" data-aos="fade-up">
-          <span class="text-uppercase small tracking-widest text-white-50" style="font-size: 0.75rem;">AI Agent Design</span>
-          <h2 class="h3 fw-bold text-white mt-2 mb-4">Beyond the Model</h2>
-          <div class="project-description fs-body-custom">
-            <p>The agent's behavior is not determined solely by the language model. To ensure predictability, its actions are tightly guided through:</p>
-            <ul class="text-white-50 mt-3 mb-4" style="line-height: 1.8;">
-              <li>Strict system instructions</li>
-              <li>Defined tool configurations</li>
-              <li>Active context management</li>
-              <li>Clear operational boundaries</li>
-            </ul>
-            <p>This systematic approach ensures that the assistant remains reliable, avoids hallucinations, and is strictly aligned with user intentions.</p>
-          </div>
-    </section>
+      <!-- ============ 04 · AGENT DESIGN (banda scura) ============ -->
+      <section class="cs-band" data-aos="fade-up">
+        <div class="cs-band-inner">
+          <span class="cs-eyebrow cs-eyebrow-light"><b>04</b> AI agent design</span>
+          <h2 class="cs-h2">Beyond the model</h2>
+          <p class="cs-body-text">
+            The agent's behavior is not determined solely by the language model. To ensure
+            predictability, its actions are tightly guided through <strong>strict system
+            instructions</strong>, <strong>defined tool configurations</strong>, <strong>active
+            context management</strong> and <strong>clear operational boundaries</strong>.
+          </p>
+          <p class="cs-body-text">
+            This systematic approach keeps the assistant reliable, avoids hallucinations, and keeps
+            every action strictly aligned with user intentions.
+          </p>
+        </div>
+      </section>
 
-    <section class="mb-5 text-center py-5 rounded-4 position-relative overflow-hidden" 
-             style="background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.02), hsla(0, 0%, 100%, 0.04)); border: 1px solid hsla(0, 0%, 100%, 0.08);" 
-             data-aos="fade-up">
-      
-      <div class="container position-relative z-1 px-4" style="max-width: 800px;">
-        <span class="badge-custom d-inline-block mb-3">Key Takeaways & Outcome</span>
-        <h2 class="display-6 fw-bold text-white mb-3">Practical AI for Real-World Tasks</h2>
-        <p class="fs-body-custom mb-5 mx-auto" style="max-width: 700px;">
-          This project demonstrates how AI agents can effectively automate structured tasks while operating within a controlled environment. Rather than replacing users, the system supports them by reducing repetitive work and improving efficiency, maintaining human oversight when needed.
+      <!-- ============ 05 · OUTCOME ============ -->
+      <section class="cs-section" data-aos="fade-up">
+        <span class="cs-eyebrow"><b>05</b> Key takeaways &amp; outcome</span>
+        <h2 class="cs-h2">Practical AI for real-world tasks</h2>
+        <p class="cs-body-text">
+          This project demonstrates how AI agents can effectively automate structured tasks while
+          operating within a controlled environment.
         </p>
-
-        <div class="glass-image-container aspect-16-9 mx-auto mb-5" style="max-width: 700px;">
-          <img src="assets/img/png/agent-final-workflow.png" alt="Final workflow visualization and outcome" class="project-img">
+        <p class="cs-outcome">
+          Rather than replacing users, the system supports them — reducing repetitive work and
+          improving efficiency, while maintaining human oversight where it matters.
+        </p>
+        <div class="cs-figure mx-auto" style="max-width: 760px;" data-aos="fade-up">
+          <img src="assets/img/png/agent-final-workflow.png" alt="Final workflow visualization and outcome">
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="mb-5 text-center py-5" data-aos="fade-up">
-      <h2 class="h3 fw-bold text-white mb-3">See the Assistant in Action</h2>
-      <p class="fs-body-custom text-white-50 mb-4 mx-auto" style="max-width: 600px;">
-        Watch a live demonstration of the workflow, including voice recognition, email automation, and immediate calendar event creation.
-      </p>
-      
-      <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="https://www.loom.com/share/be87439914b14baca491745513379092" class="btn btn-gradient px-4 py-3 rounded-pill fw-bold d-inline-flex align-items-center gap-2" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/><line x1="19" y1="12" x2="19" y2="12"/></svg>
-          Watch Demo Video
-        </a>
-      </div>
-    </section>
+      <!-- ============ THANKS + NEXT ============ -->
+      <footer class="cs-section cs-end">
+        <p class="cs-thanks" data-aos="fade-up">Thanks for watching</p>
 
-    <footer class="next-project-section border-top border-white border-opacity-10 pt-5 mt-5" data-aos="fade-up">
-      <p class="small text-uppercase tracking-widest text-white-50 mb-4">Next Project</p>
-      <a href="project-muuto.html" class="next-project-link d-flex justify-content-between align-items-center group text-decoration-none">
-        <h2 class="display-5 fw-bold text-white transition-smooth">Muuto - Brand Redesign</h2>
-        <div class="arrow-circle">
-          <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
-            <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div class="cs-end-actions" data-aos="fade-up">
+          <a href="https://www.loom.com/share/be87439914b14baca491745513379092"
+             class="cs-btn cs-btn-primary" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See the assistant in action
+          </a>
         </div>
-      </a>
-    </footer>
 
-  </div>
-</main>
-<footer class="footer-section py-5 relative">
-  <div class="container custom-container">
-    <div class="line-gradient mb-5"></div>
+        <a href="/#works" class="cs-back-all">← Back to all works</a>
+      </footer>
 
-    <div class="footer-content d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
-      
-      <div class="footer-left d-flex align-items-center gap-3">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/img/svg/logo.svg" alt="Logo" height="20">
-        </a>
-        <span class="footer-copy">© 2026 — DESIGNED & CODED WITH ♡ BY ME</span>
-      </div>
+    </article>
+  </main>
 
-          <div class="footer-right d-flex align-items-center gap-4">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=donnicolajessica@gmail.com" class="footer-link" target="_blank" 
-          rel="noopener noreferrer">Email</a>
-        <a href="https://www.linkedin.com/in/jessica-donnicola-a59453378"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link d-flex align-items-center gap-2">
-          LinkedIn
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </a>
-      </div>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
 
-    </div>
-  </div>
-</footer>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JS -->
+    // Barra di progresso scroll
+    const bar = document.getElementById('csProgressBar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.transform = `scaleX(${scrolled})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-<script src="assets/js/script.js"></script>
+    // ESC per chiudere il case study
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.location.href = '/#works';
+    });
+  </script>
 </body>
 </html>

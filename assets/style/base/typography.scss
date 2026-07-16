@@ -1,18 +1,33 @@
+// _typography.scss — M1
+// Scala fluida centralizzata. D'ora in poi i clamp() vivono SOLO qui.
+
 @use '../variables/variables' as *;
 
-body {
-  font-family: $font-main;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+:root {
+  --text-display: clamp(2.75rem, 8vw, 6rem);      // Hero H1
+  --text-h1: clamp(2.5rem, 5.5vw, 4rem);          // Titoli di sezione grandi
+  --text-h2: clamp(2rem, 4.5vw, 3rem);            // .section-title
+  --text-h3: clamp(1.25rem, 3vw, 1.875rem);       // .work-title
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
 }
 
-h1, h2, h3, h4, h5, h6, .btn {
-  font-family: $font-main;
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.work-title,
+.node-title {
+  font-family: $font-title;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
-.bold-titles{
-    font-weight: 800 !important;
-    line-height: 1.1 !important;
+// Stile "cornice / etichetta" — caps larghi come nelle reference Figma
+.frame-text,
+.overline-text {
+  font-family: $font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-caption);
 }

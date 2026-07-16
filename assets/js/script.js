@@ -1,150 +1,244 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('bubbles-container');
+// script.js — Pulito, Ottimizzato e Integrato
 
-  const bubblesData = [
-    { id: 1, size: 280, x: 15, y: 20, delay: 0, duration: 8, opacity: 0.12, blur: 0 },
-    { id: 2, size: 180, x: 75, y: 15, delay: 1, duration: 10, opacity: 0.08, blur: 20 },
-    { id: 3, size: 120, x: 60, y: 65, delay: 2, duration: 7, opacity: 0.15, blur: 0 },
-    { id: 4, size: 200, x: 85, y: 55, delay: 0.5, duration: 9, opacity: 0.06, blur: 30 },
-    { id: 5, size: 90, x: 30, y: 70, delay: 3, duration: 6, opacity: 0.1, blur: 10 },
-    { id: 6, size: 150, x: 50, y: 35, delay: 1.5, duration: 11, opacity: 0.07, blur: 40 },
-    { id: 7, size: 60, x: 90, y: 80, delay: 2.5, duration: 7, opacity: 0.18, blur: 0 },
-  ];
-
-  bubblesData.forEach((b) => {
-    const bubble = document.createElement('div');
-    
-    Object.assign(bubble.style, {
-      position: 'absolute',
-      width: `${b.size}px`,
-      height: `${b.size}px`,
-      left: `${b.x}%`,
-      top: `${b.y}%`,
-      borderRadius: '50%',
-      // Usiamo le variabili colore HSL che abbiamo nel CSS
-      background: `radial-gradient(circle at 30% 30%, hsla(12, 100%, 64%, ${b.opacity + 0.05}), hsla(14, 100%, 78%, ${b.opacity}), transparent 70%)`,
-      filter: b.blur > 0 ? `blur(${b.blur}px)` : 'none',
-      animation: `float ${b.duration}s infinite ease-in-out`,
-      animationDelay: `${b.delay}s`,
-      pointerEvents: 'none'
-    });
-
-    container.appendChild(bubble);
-  });
-});
-
-
-
-//SECTION PORTFOLIO///
-const animatedSections = document.querySelectorAll('.framer-hidden');
-
-const observerOptions = {
-  root: null,
-  rootMargin: '-100px',
-  threshold: 0
-};
-
-const sectionObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('framer-visible');
-      observer.unobserve(entry.target); 
-    }
-  });
-}, observerOptions);
-
-animatedSections.forEach(section => {
-  sectionObserver.observe(section);
-});
-
-
-///navbar///
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.querySelector('.navbar-alien');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    const menuToggle = document.getElementById('navMain');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
-    
-    navLinks.forEach((l) => {
-        l.addEventListener('click', () => { 
-            if(window.innerWidth < 768) { bsCollapse.hide(); }
-        });
-    });
-});
-
-
-///about///
-document.addEventListener('DOMContentLoaded', () => {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15 
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); 
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal-up').forEach((el) => {
-    observer.observe(el);
-  });
-});
-
-
-
-///EmailJS///
-  (function() {
-    emailjs.init({
-        publicKey: "Z0r20YlEb2aWizdzc", 
-    });
+// 1. ── EMAILJS INITIALIZATION ──
+(function () {
+  if (typeof emailjs === 'undefined') return;
+  emailjs.init({ publicKey: 'Z0r20YlEb2aWizdzc' });
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    
-    if (form) {
-        const messageDisplay = document.getElementById('form-message');
-        const submitButton = document.getElementById('submit-button');
-        
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'SENDING...';
-            messageDisplay.style.display = 'none';
 
-            emailjs.sendForm('service_3y532vq', 'template_mi319rm', this)
-                .then(function() {
-                    // Success
-                    messageDisplay.textContent = 'Messaggio inviato con successo! Ti risponderò al più presto.';
-                    messageDisplay.className = 'mt-3 text-center alert alert-success d-block'; 
-                    form.reset();
-                }, function(error) {
-                    // Error
-                    console.error('EmailJS Error:', error);
-                    messageDisplay.textContent = 'Errore nell\'invio del messaggio. Riprova più tardi oppure contattami direttamente a donnicolajessica@gmail.com';
-                    messageDisplay.className = 'mt-3 text-center alert alert-danger d-block';
-                })
-                .finally(function() {
-                    // Ripristina il bottone
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'INVIA MESSAGGIO';
-                });
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 2. ── GESTIONE FORM CONTATTI ──
+  const form = document.getElementById('contact-form');
+  if (form && typeof emailjs !== 'undefined') {
+    const messageDisplay = document.getElementById('form-message');
+    const submitButton = document.getElementById('submit-button');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+      messageDisplay.style.display = 'none';
+
+      emailjs.sendForm('service_3y532vq', 'template_mi319rm', this)
+        .then(function () {
+          messageDisplay.textContent = 'Messaggio inviato con successo! Ti risponderò al più presto.';
+          messageDisplay.className = 'mt-3 text-center alert alert-success d-block';
+          form.reset();
+        }, function (error) {
+          console.error('EmailJS Error:', error);
+          messageDisplay.textContent = "Errore nell'invio del messaggio. Riprova più tardi oppure contattami a donnicolajessica@gmail.com";
+          messageDisplay.className = 'mt-3 text-center alert alert-danger d-block';
+        })
+        .finally(function () {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send it →';
         });
+    });
+  }
+
+  // 3. ── MENU FULLSCREEN ──
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  const menuItems = document.querySelectorAll('.menu-item');
+  const menuFooter = document.querySelector('.menu-footer');
+  let isMenuOpen = false;
+
+  if (menuToggle && siteMenu) {
+    const menuTimeline = gsap.timeline({ paused: true, reversed: true });
+    menuTimeline
+      .to(siteMenu, { opacity: 1, duration: 0.6, ease: "power2.inOut" })
+      .fromTo(menuItems, 
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power4.out" },
+        "-=0.3"
+      )
+      .fromTo(menuFooter,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
+        "-=0.5"
+      );
+
+    menuToggle.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        document.body.classList.add('menu-is-open');
+        menuToggle.textContent = 'Close';
+        menuToggle.setAttribute('aria-expanded', 'true');
+        siteMenu.setAttribute('aria-hidden', 'false');
+        menuTimeline.play();
+      } else {
+        menuTimeline.reverse().then(() => {
+          document.body.classList.remove('menu-is-open');
+          menuToggle.textContent = 'Menu';
+          menuToggle.setAttribute('aria-expanded', 'false');
+          siteMenu.setAttribute('aria-hidden', 'true');
+        });
+      }
+    });
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if(isMenuOpen) menuToggle.click();
+      });
+    });
+  }
+
+
+  // 4. ── EFFETTO MONOLOG (I contenuti si alzano mentre scrolli la pagina) ──
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Prendiamo i contenitori interni di ogni sezione principale
+    const sezioniParallax = gsap.utils.toArray('section.section-block .custom-container');
+    
+    sezioniParallax.forEach((container) => {
+      // Il contenitore parte 60px più in basso e finisce 60px più in alto rispetto al suo centro
+      gsap.fromTo(container, 
+        { y: 60 }, 
+        {
+          y: -60,
+          ease: "none", 
+          scrollTrigger: {
+            trigger: container.parentElement, // Triggeriamo in base alla sezione che lo contiene
+            start: "top bottom",              // Quando la sezione entra dal basso
+            end: "bottom top",                // Quando la sezione esce dall'alto
+            scrub: 1                          // Ritardo di 1 secondo per renderlo "burroso"
+          }
+        }
+      );
+    });
+  }
+
+
+  // 5. ── SOUND MANAGER + POPUP CONTATTI (LOGICA UNIFICATA) ──
+  const audioFiles = {
+  ambient: new Audio('assets/audio/ambient-loop.mp3'),
+  // hover: new Audio('assets/audio/hover-ui.mp3'), // Rimosso: file non più utilizzato
+  click: new Audio('assets/audio/click-ui.mp3'),
+  contact: new Audio('assets/audio/contact-jazz.mp3')
+};
+
+audioFiles.ambient.loop = true;
+audioFiles.ambient.volume = 0.9; 
+audioFiles.contact.loop = true;
+audioFiles.contact.volume = 0; // Il jazz parte muto
+
+// audioFiles.hover.volume = 0.8; // Rimosso: gestione volume hover non necessaria
+audioFiles.click.volume = 0.9;
+
+let isMuted = false;
+let audioUnlocked = false; 
+
+const soundToggle = document.getElementById('sound-toggle');
+const soundStatusText = document.getElementById('sound-status-text');
+
+function unlockAndPlay() {
+  if (audioUnlocked || isMuted) return;
+  audioUnlocked = true;
+  audioFiles.ambient.play().catch(() => { audioUnlocked = false; });
+  audioFiles.contact.play().catch(() => {});
+}
+
+function toggleMasterMute() {
+  isMuted = !isMuted;
+  if (isMuted) {
+    if (soundToggle) soundToggle.classList.remove('is-playing');
+    if (soundToggle) soundToggle.setAttribute('aria-pressed', 'false');
+    if (soundStatusText) soundStatusText.textContent = '[ AUDIO OFF ]';
+
+    gsap.to([audioFiles.ambient, audioFiles.contact], { 
+      volume: 0, 
+      duration: 0.4,
+      onComplete: () => {
+        audioFiles.ambient.pause();
+        audioFiles.contact.pause();
+      }
+    });
+  } else {
+    if (soundToggle) soundToggle.classList.add('is-playing');
+    if (soundToggle) soundToggle.setAttribute('aria-pressed', 'true');
+    if (soundStatusText) soundStatusText.textContent = '[ AUDIO ON ]';
+    
+    audioUnlocked = false; 
+    unlockAndPlay(); 
+
+    // Ripristina l'audio giusto a seconda se il popup è aperto o meno
+    const isPopupOpen = document.getElementById('contact-modal')?.classList.contains('is-active');
+    if (isPopupOpen) {
+      gsap.to(audioFiles.ambient, { volume: 0, duration: 0.6 });
+      gsap.to(audioFiles.contact, { volume: 0.15, duration: 0.6 });
+    } else {
+      gsap.to(audioFiles.ambient, { volume: 0.9, duration: 0.6 });
+      gsap.to(audioFiles.contact, { volume: 0, duration: 0.6 });
     }
+  }
+}
+
+if (soundToggle) {
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMasterMute();
+  });
+}
+
+document.addEventListener('click', () => {
+  if (!audioUnlocked && !isMuted) unlockAndPlay();
+}, { once: true });
+
+// Suoni UI (SOLO CLICK)
+document.querySelectorAll('a, button, input, textarea, .menu-item').forEach(el => {
+  if (el.id === 'sound-toggle' || el.closest('#sound-toggle')) return;
+  
+  /* Rimosso EventListener mouseenter per hover-ui.mp3:
+    el.addEventListener('mouseenter', () => {
+      if (isMuted) return;
+      audioFiles.hover.currentTime = 0;
+      audioFiles.hover.play().catch(() => {});
+    });
+  */
+
+  el.addEventListener('click', () => {
+    if (isMuted) return;
+    audioFiles.click.currentTime = 0;
+    audioFiles.click.play().catch(() => {});
+  });
+});
+
+// 6. ── POPUP CONTATTI E CAMBIO MUSICA ──
+const modal = document.getElementById('contact-modal');
+const openButtons = document.querySelectorAll('a[href="#contact"], .btn-frame-cta, .trigger-contact');
+
+if (modal) {
+  const backdrop = modal.querySelector('.modal-backdrop');
+  const closeButton = modal.querySelector('.modal-close');
+
+  const openContactModal = (e) => {
+    if(e) e.preventDefault();
+    modal.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+
+    // Sfuma l'ambiente e alza il jazz
+    if (!isMuted && audioUnlocked) {
+      gsap.to(audioFiles.ambient, { volume: 0, duration: 1.2, ease: 'power1.inOut' });
+      gsap.to(audioFiles.contact, { volume: 0.15, duration: 1.2, ease: 'power1.inOut' });
+    }
+  };
+
+  const closeContactModal = () => {
+    modal.classList.remove('is-active');
+    document.body.style.overflow = ''; 
+
+    // Rimette l'ambiente e silenzia il jazz
+    if (!isMuted && audioUnlocked) {
+      gsap.to(audioFiles.ambient, { volume: 0.9, duration: 1.2, ease: 'power1.inOut' });
+      gsap.to(audioFiles.contact, { volume: 0, duration: 1.2, ease: 'power1.inOut' });
+    }
+  };
+
+  openButtons.forEach(btn => btn.addEventListener('click', openContactModal));
+  closeButton.addEventListener('click', closeContactModal);
+  backdrop.addEventListener('click', closeContactModal);
+}
 });
